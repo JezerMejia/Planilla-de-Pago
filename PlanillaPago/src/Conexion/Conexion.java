@@ -9,8 +9,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Logger;
 
-
-
 /**
  * @author Roire
  * @version 1.0
@@ -18,13 +16,13 @@ import java.util.logging.Logger;
  */
 public class Conexion {
 
-	private Conexion instancia;
+	private static Connection instancia;
 	public TablaAdelantos m_TablaAdelantos;
 	public TablaPagos m_TablaPagos;
 	public TablaAsistencia m_TablaAsistencia;
 	public TablaEmpleados m_TablaEmpleados;
 
-        private static final String SERVIDOR = "GIMENANAVARRETE\\SQLEXPRESS";
+    private static final String SERVIDOR = "localhost";
     private static final String USUARIO = "sa";
     private static final String PW = "1234";
     private static final String NOMBREBD = "Libros";
@@ -32,6 +30,8 @@ public class Conexion {
     private static final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     
     public Connection obtenerConexion(){
+        if (Conexion.instancia != null)
+            return Conexion.instancia;
         try{
             String conexionUrl = "jdbc:sqlserver://" + SERVIDOR +": " + PUERTO +
                     "; Databasename= " + NOMBREBD +"; user= " + USUARIO +
@@ -39,16 +39,14 @@ public class Conexion {
             Class.forName(DRIVER);
             return (DriverManager.getConnection(conexionUrl));
         }catch(ClassNotFoundException | SQLException ex){
-                Logger.getLogger(Conexion.class.getName()); //.log(Level.WARNING);
+            Logger.getLogger(Conexion.class.getName()); //.log(Level.WARNING);
         }
         return null;
     }
     
     public void close(Connection conn){
         try{
-        
-        conn.close();
-            
+            conn.close();
         }catch(SQLException ex){
             Logger.getLogger(Conexion.class.getName()); //.log(Level.ERROR, null, ex);
         }

@@ -13,41 +13,37 @@ import Registros.RegistroPago;
  */
 public class Empleado {
 
-	private String apellido;
-	private String cargo;
-	private Integer id;
-	private String nombre;
-	private Integer privilegios = 0;
-	private RegistroPago m_RegistroPago;
-	private RegistroAdelanto m_RegistroAdelanto;
-	private RegistroAsistencia m_RegistroAsistencia;
-	private PlanillaPago m_PlanillaPago;
+    protected String apellido;
+    protected String cargo;
+    protected Integer id;
+    protected String nombre;
+    protected Integer privilegios = 0;
+    protected PlanillaPago m_PlanillaPago;
 
-    public Empleado(String apellido, String cargo, Integer id, String nombre, RegistroPago m_RegistroPago, RegistroAdelanto m_RegistroAdelanto, RegistroAsistencia m_RegistroAsistencia, PlanillaPago m_PlanillaPago) {
+    public Empleado(Integer id, String nombre, String apellido, String cargo, PlanillaPago m_PlanillaPago) {
         this.apellido = apellido;
         this.cargo = cargo;
         this.id = id;
         this.nombre = nombre;
-        this.m_RegistroPago = m_RegistroPago;
-        this.m_RegistroAdelanto = m_RegistroAdelanto;
-        this.m_RegistroAsistencia = m_RegistroAsistencia;
         this.m_PlanillaPago = m_PlanillaPago;
     }
-        
-	public Empleado(){
-            
-	}
 
-	public void finalize() throws Throwable {
+    public Empleado(){
+    }
 
-	}
-	public void registrarAsistencia(){
+    /**
+     * Se registra la asistencia con el input
+     * del empleado
+     */
+    public void registrarAsistencia(){
+    }
 
-	}
-
-	public void solicitarAdelanto(){
-
-	}
+    /**
+     * Se obtiene el input y se solicita el adelanto
+     * con la Planilla de Pago
+     */
+    public void solicitarAdelanto(){
+    }
 
     /**
      * @return the apellido
@@ -120,48 +116,6 @@ public class Empleado {
     }
 
     /**
-     * @return the m_RegistroPago
-     */
-    public RegistroPago getM_RegistroPago() {
-        return m_RegistroPago;
-    }
-
-    /**
-     * @param m_RegistroPago the m_RegistroPago to set
-     */
-    public void setM_RegistroPago(RegistroPago m_RegistroPago) {
-        this.m_RegistroPago = m_RegistroPago;
-    }
-
-    /**
-     * @return the m_RegistroAdelanto
-     */
-    public RegistroAdelanto getM_RegistroAdelanto() {
-        return m_RegistroAdelanto;
-    }
-
-    /**
-     * @param m_RegistroAdelanto the m_RegistroAdelanto to set
-     */
-    public void setM_RegistroAdelanto(RegistroAdelanto m_RegistroAdelanto) {
-        this.m_RegistroAdelanto = m_RegistroAdelanto;
-    }
-
-    /**
-     * @return the m_RegistroAsistencia
-     */
-    public RegistroAsistencia getM_RegistroAsistencia() {
-        return m_RegistroAsistencia;
-    }
-
-    /**
-     * @param m_RegistroAsistencia the m_RegistroAsistencia to set
-     */
-    public void setM_RegistroAsistencia(RegistroAsistencia m_RegistroAsistencia) {
-        this.m_RegistroAsistencia = m_RegistroAsistencia;
-    }
-
-    /**
      * @return the m_PlanillaPago
      */
     public PlanillaPago getM_PlanillaPago() {
@@ -174,7 +128,4 @@ public class Empleado {
     public void setM_PlanillaPago(PlanillaPago m_PlanillaPago) {
         this.m_PlanillaPago = m_PlanillaPago;
     }
-        
-        
-        
 }//end Empleado

@@ -2,8 +2,8 @@ package Tablas;
 
 import Planilla.PlanillaPago;
 import Registros.RegistroPago;
+import Conexion.Conexion;
 import java.util.ArrayList;
-
 
 /**
  * @author Roire
@@ -12,37 +12,18 @@ import java.util.ArrayList;
  */
 public class TablaPagos {
 
-	private PlanillaPago m_PlanillaPago;
+    private ArrayList<RegistroPago> registrosPago;
+    private Conexion conexion = new Conexion();
 
-	public TablaPagos(){
+    public TablaPagos(){
 
-	}
-
-	public void finalize() throws Throwable {
-
-	}
-	
-	public void añadirRegistro(RegistroPago registro){
-
-	}
-
-	public ArrayList<RegistroPago> getTabla(){
-		return null;
-	}
-
-    /**
-     * @return the m_PlanillaPago
-     */
-    public PlanillaPago getM_PlanillaPago() {
-        return m_PlanillaPago;
     }
 
-    /**
-     * @param m_PlanillaPago the m_PlanillaPago to set
-     */
-    public void setM_PlanillaPago(PlanillaPago m_PlanillaPago) {
-        this.m_PlanillaPago = m_PlanillaPago;
+    public void añadirRegistro(RegistroPago registro){
+        this.registrosPago.add(registro);
     }
-        
-        
+
+    public ArrayList<RegistroPago> getTabla(){
+        return registrosPago;
+    }
 }//end TablaPagos

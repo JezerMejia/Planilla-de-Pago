@@ -11,17 +11,13 @@ import java.util.Date;
  */
 public class RegistroPago {
 
-	private Date fecha;
-	private Float monto;
-	private PlanillaPago m_PlanillaPago;
+    private Date fecha;
+    private Float monto;
+    private PlanillaPago m_PlanillaPago;
 
-	public RegistroPago(){
+    public RegistroPago(){
 
-	}
-
-	public void finalize() throws Throwable {
-
-	}
+    }
 
     /**
      * @return the fecha
@@ -64,7 +60,4 @@ public class RegistroPago {
     public void setM_PlanillaPago(PlanillaPago m_PlanillaPago) {
         this.m_PlanillaPago = m_PlanillaPago;
     }
-        
-        
-        
 }//end RegistroPago

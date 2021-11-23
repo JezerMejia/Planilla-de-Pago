@@ -11,19 +11,15 @@ import java.util.Date;
  */
 public class RegistroAdelanto {
 
-	private boolean aceptado;
-	private float adelanto;
-	private Date fecha;
-	private String justificacion;
-	private PlanillaPago m_PlanillaPago;
+    private boolean aceptado;
+    private float adelanto;
+    private Date fecha;
+    private String justificacion;
+    private PlanillaPago m_PlanillaPago;
 
-	public RegistroAdelanto(){
+    public RegistroAdelanto(){
 
-	}
-
-	public void finalize() throws Throwable {
-
-	}
+    }
 
     /**
      * @return the aceptado
@@ -94,7 +90,4 @@ public class RegistroAdelanto {
     public void setM_PlanillaPago(PlanillaPago m_PlanillaPago) {
         this.m_PlanillaPago = m_PlanillaPago;
     }
-        
-        
-        
 }//end RegistroAdelanto

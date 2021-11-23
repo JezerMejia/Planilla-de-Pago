@@ -11,17 +11,13 @@ import java.util.Date;
  */
 public class RegistroAsistencia {
 
-	private boolean asistencia;
-	private Date fecha;
-	private PlanillaPago m_PlanillaPago;
+    private boolean asistencia;
+    private Date fecha;
+    private PlanillaPago m_PlanillaPago;
 
-	public RegistroAsistencia(){
+    public RegistroAsistencia(){
 
-	}
-
-	public void finalize() throws Throwable {
-
-	}
+    }
 
     /**
      * @return the asistencia
@@ -64,7 +60,4 @@ public class RegistroAsistencia {
     public void setM_PlanillaPago(PlanillaPago m_PlanillaPago) {
         this.m_PlanillaPago = m_PlanillaPago;
     }
-        
-        
-        
 }//end RegistroAsistencia

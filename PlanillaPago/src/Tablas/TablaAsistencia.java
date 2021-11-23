@@ -2,6 +2,7 @@ package Tablas;
 
 import Planilla.PlanillaPago;
 import Registros.RegistroAsistencia;
+import Conexion.Conexion;
 import java.util.ArrayList;
 
 
@@ -12,40 +13,22 @@ import java.util.ArrayList;
  */
 public class TablaAsistencia {
 
-	private PlanillaPago m_PlanillaPago;
+    private ArrayList<RegistroAsistencia> registrosAsistencia;
+    private Conexion conexion = new Conexion();
 
-	public TablaAsistencia(){
+    public TablaAsistencia(){
 
-	}
-
-	public void finalize() throws Throwable {
-
-	}
-	/**
-	 * 
-	 * @param registro
-	 */
-	public void añadirRegistro(RegistroAsistencia registro){
-
-	}
-
-	public ArrayList<RegistroAsistencia> getTabla(){
-		return null;
-	}
-
-    /**
-     * @return the m_PlanillaPago
-     */
-    public PlanillaPago getM_PlanillaPago() {
-        return m_PlanillaPago;
     }
 
     /**
-     * @param m_PlanillaPago the m_PlanillaPago to set
+     * 
+     * @param registro
      */
-    public void setM_PlanillaPago(PlanillaPago m_PlanillaPago) {
-        this.m_PlanillaPago = m_PlanillaPago;
+    public void añadirRegistro(RegistroAsistencia registro){
+        this.registrosAsistencia.add(registro);
     }
-        
-        
+
+    public ArrayList<RegistroAsistencia> getTabla(){
+        return registrosAsistencia;
+    }
 }//end TablaAsistencia

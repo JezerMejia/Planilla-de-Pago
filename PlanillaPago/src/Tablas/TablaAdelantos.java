@@ -4,6 +4,8 @@ import Planilla.PlanillaPago;
 import Registros.RegistroAdelanto;
 import java.util.ArrayList;
 
+import Conexion.Conexion;
+
 
 /**
  * @author Roire
@@ -12,48 +14,29 @@ import java.util.ArrayList;
  */
 public class TablaAdelantos {
 
-	private PlanillaPago m_PlanillaPago;
+    private ArrayList<RegistroAdelanto> regisrosAdelanto;
+    private Conexion conexion = new Conexion();
 
-	public TablaAdelantos(){
+    public TablaAdelantos(){
 
-	}
-
-	public void finalize() throws Throwable {
-
-	}
-	/**
-	 * 
-	 * @param registro
-	 */
-	public void actualizarRegistro(RegistroAdelanto registro){
-
-	}
-
-	/**
-	 * 
-	 * @param registro
-	 */
-	public void añadirRegistro(RegistroAdelanto registro){
-
-	}
-
-	public ArrayList<RegistroAdelanto> getTabla(){
-		return null;
-	}
-
-    /**
-     * @return the m_PlanillaPago
-     */
-    public PlanillaPago getM_PlanillaPago() {
-        return m_PlanillaPago;
     }
 
     /**
-     * @param m_PlanillaPago the m_PlanillaPago to set
+     * 
+     * @param registro
      */
-    public void setM_PlanillaPago(PlanillaPago m_PlanillaPago) {
-        this.m_PlanillaPago = m_PlanillaPago;
+    public void actualizarRegistro(RegistroAdelanto registro){
     }
-        
-        
+
+    /**
+     * 
+     * @param registro
+     */
+    public void añadirRegistro(RegistroAdelanto registro){
+        this.regisrosAdelanto.add(registro);
+    }
+
+    public ArrayList<RegistroAdelanto> getTabla(){
+        return regisrosAdelanto;
+    }
 }//end TablaAdelantos

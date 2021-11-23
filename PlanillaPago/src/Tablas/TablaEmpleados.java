@@ -2,8 +2,8 @@ package Tablas;
 
 import Planilla.PlanillaPago;
 import Usuarios.Empleado;
+import Conexion.Conexion;
 import java.util.ArrayList;
-
 
 /**
  * @author jezer
@@ -12,40 +12,22 @@ import java.util.ArrayList;
  */
 public class TablaEmpleados {
 
-	private PlanillaPago m_PlanillaPago;
+    private ArrayList<Empleado> empleados;
+    private Conexion conexion = new Conexion();
 
-	public TablaEmpleados(){
+    public TablaEmpleados(){
 
-	}
-
-	public void finalize() throws Throwable {
-
-	}
-	/**
-	 * 
-	 * @param empleado
-	 */
-	public void añadirEmpleado(Empleado empleado){
-
-	}
-
-	public ArrayList<Empleado> getTabla(){
-		return null;
-	}
-
-    /**
-     * @return the m_PlanillaPago
-     */
-    public PlanillaPago getM_PlanillaPago() {
-        return m_PlanillaPago;
     }
 
     /**
-     * @param m_PlanillaPago the m_PlanillaPago to set
+     * 
+     * @param empleado
      */
-    public void setM_PlanillaPago(PlanillaPago m_PlanillaPago) {
-        this.m_PlanillaPago = m_PlanillaPago;
+    public void añadirEmpleado(Empleado empleado){
+        this.empleados.add(empleado);
     }
-        
-        
+
+    public ArrayList<Empleado> getTabla(){
+        return empleados;
+    }
 }//end TablaEmpleados

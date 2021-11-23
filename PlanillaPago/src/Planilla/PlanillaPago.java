@@ -2,7 +2,6 @@ package Planilla;
 
 import Usuarios.Empleado;
 
-
 /**
  * @author Roire
  * @version 1.0
@@ -14,9 +13,6 @@ public class PlanillaPago {
 
 	}
 
-	public void finalize() throws Throwable {
-
-	}
 	/**
 	 * 
 	 * @param aceptado
@@ -64,7 +60,4 @@ public class PlanillaPago {
 	public void solicitarAdelanto(Empleado empleado, Float adelanto, String justificacion){
 
 	}
-        
-        
-        
 }//end PlanillaPago

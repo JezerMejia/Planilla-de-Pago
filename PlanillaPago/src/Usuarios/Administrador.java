@@ -10,24 +10,29 @@ import Planilla.PlanillaPago;
  */
 public class Administrador extends Empleado {
 
-	private Integer privilegios = 1;
-	private PlanillaPago m_PlanillaPago;
-        
-        
-	public Administrador(){
+    protected Integer privilegios = 1;
 
-	}
+    public Administrador(Integer id, String nombre, String apellido, String cargo, PlanillaPago m_PlanillaPago) {
+        super(id, nombre, apellido, cargo, m_PlanillaPago);
+    }
 
-	public void finalize() throws Throwable {
-		super.finalize();
-	}
-	public void aceptarAdelanto(){
+    public Administrador(){
 
-	}
+    }
 
-	public void realizarPago(){
+    /**
+     * Se acepta el adelanto de un empleado
+     */
+    public void aceptarAdelanto(){
 
-	}
+    }
+
+    /**
+     * Se realiza el debido pago del empleado
+     */
+    public void realizarPago(){
+
+    }
 
     /**
      * @return the privilegios
@@ -56,7 +61,4 @@ public class Administrador extends Empleado {
     public void setM_PlanillaPago(PlanillaPago m_PlanillaPago) {
         this.m_PlanillaPago = m_PlanillaPago;
     }
-        
-        
-        
 }//end Administrador
