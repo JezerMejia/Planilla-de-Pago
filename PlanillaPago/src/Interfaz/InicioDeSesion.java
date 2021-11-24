@@ -19,7 +19,6 @@ public class InicioDeSesion extends javax.swing.JFrame {
         initComponents();
         
         this.setLocationRelativeTo(null);
-        
     }
 
     /**
@@ -47,7 +46,7 @@ public class InicioDeSesion extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(0, 0, 102));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/WhatsApp Image 2021-11-23 at 5.25.52 PM (3)_preview_rev_1 (1).png"))); // NOI18N
+        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/logo.png"))); // NOI18N
         jPanel3.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
 
         Contrasenia.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N

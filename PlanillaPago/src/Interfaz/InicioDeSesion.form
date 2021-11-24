@@ -47,7 +47,7 @@
         <Component class="javax.swing.JLabel" name="Logo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Iconos/WhatsApp Image 2021-11-23 at 5.25.52 PM (3)_preview_rev_1 (1).png"/>
+              <Image iconType="3" name="/Iconos/logo.png"/>
             </Property>
           </Properties>
           <Constraints>
