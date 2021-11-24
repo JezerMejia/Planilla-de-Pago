@@ -5,7 +5,6 @@
  */
 package Principal;
 
-import Interfaz.InicioDeSesion;
 
 /**
  *
