@@ -201,28 +201,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_idActionPerformed
 
     private void idMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idMousePressed
-        if(id.getText().equals("Ingrese su ID asignado")){
-            id.setText("");
-            id.setForeground(Color.black);
-        }
-        
-        if(String.valueOf(contra.getPassword()).isEmpty()){
-            contra.setText("********");
-            contra.setForeground(new Color(204,204,204));
-        }
+
     }//GEN-LAST:event_idMousePressed
 
     private void contraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contraMouseClicked
-        
-        if(String.valueOf(contra.getPassword()).equals("********")){
-            contra.setText("");
-            contra.setForeground(Color.black);
-        }
-        
-        if(id.getText().isEmpty()){
-            id.setText("Ingrese su ID asignado");
-            id.setForeground(new Color(204,204,204));
-        }
+
     }//GEN-LAST:event_contraMouseClicked
 
     private void entrarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarBActionPerformed
