@@ -5,6 +5,8 @@
 package Interfaz;
 
 
+import Interfaz.mdiAdministrador.AdministradorC;
+import Interfaz.mdiEmpleado.EmpleadoC;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -228,7 +230,7 @@ public class Login extends javax.swing.JFrame {
 
     private void entrarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarBActionPerformed
         EmpleadoC cen = new EmpleadoC();
-        Administrador adm = new Administrador();
+        AdministradorC adm = new AdministradorC();
         
         if(id.getText().equals("123")){
             cen.setVisible(true);

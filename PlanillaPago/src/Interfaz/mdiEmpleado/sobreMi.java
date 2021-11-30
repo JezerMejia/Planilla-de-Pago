@@ -4,16 +4,18 @@
  */
 package Interfaz.mdiEmpleado;
 
+import Interfaz.Login;
+
 /**
  *
  * @author Gimena Navarrete
  */
-public class Yo extends javax.swing.JInternalFrame {
+public class sobreMi extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Yo
      */
-    public Yo() {
+    public sobreMi() {
         initComponents();
     }
 
@@ -45,6 +47,11 @@ public class Yo extends javax.swing.JInternalFrame {
         jLabel4.setText("ID:");
 
         jButton1.setText("Cerrar Sesion");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,6 +88,10 @@ public class Yo extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

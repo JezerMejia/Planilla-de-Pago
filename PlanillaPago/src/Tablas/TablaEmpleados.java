@@ -24,7 +24,7 @@ public class TablaEmpleados {
     private PreparedStatement insertarRegistros;
     private PreparedStatement modificarRegistros;
     private PreparedStatement eliminarRegistros;
-
+/*
     public TablaEmpleados(){
         try{
             conn = conexion.obtenerConexion();
@@ -113,7 +113,7 @@ public class TablaEmpleados {
         return 0;
     }
     
-    
+  */  
     public void mostrarEmpleados(){
     }
     
