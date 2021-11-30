@@ -13,19 +13,11 @@ public class PlanillaPago {
 
 	}
 
-	/**
-	 * 
-	 * @param aceptado
-	 * @param empleado
-	 */
 	public void aceptarAdelanto(boolean aceptado, Empleado empleado){
 
 	}
 
-	/**
-	 * 
-	 * @param empleado
-	 */
+        
 	private void calcularPago(Empleado empleado){
 
 	}
@@ -58,6 +50,6 @@ public class PlanillaPago {
 	 * @param justificacion
 	 */
 	public void solicitarAdelanto(Empleado empleado, Float adelanto, String justificacion){
-
+            
 	}
 }//end PlanillaPago

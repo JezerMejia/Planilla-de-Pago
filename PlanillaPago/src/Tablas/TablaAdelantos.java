@@ -16,6 +16,7 @@ public class TablaAdelantos {
 
     private ArrayList<RegistroAdelanto> regisrosAdelanto;
     private Conexion conexion = new Conexion();
+    
 
     public TablaAdelantos(){
 
