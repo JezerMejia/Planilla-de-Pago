@@ -15,12 +15,14 @@ import javax.imageio.ImageIO;
 
 public class EmpleadoC extends javax.swing.JFrame {
     
-    public InputStream foto1 = this.getClass().getResourceAsStream("fondoCentral.png");
+    public InputStream foto1 = this.getClass().getResourceAsStream("/Iconos/fondoCentral.png");
                 
     
     public EmpleadoC() {
         initComponents();
         this.setLocationRelativeTo(null);
+        cargarImagen(central,foto1);
+        setSize(999,580);
     }
     
     public void cargarImagen(javax.swing.JDesktopPane jDesk, InputStream fileImage){
@@ -55,20 +57,22 @@ public class EmpleadoC extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        central.setBackground(new java.awt.Color(204, 204, 255));
+        central.setBackground(new java.awt.Color(255, 102, 0));
 
         javax.swing.GroupLayout centralLayout = new javax.swing.GroupLayout(central);
         central.setLayout(centralLayout);
         centralLayout.setHorizontalGroup(
             centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 972, Short.MAX_VALUE)
+            .addGap(0, 982, Short.MAX_VALUE)
         );
         centralLayout.setVerticalGroup(
             centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 499, Short.MAX_VALUE)
+            .addGap(0, 497, Short.MAX_VALUE)
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenuBar1.setMaximumSize(new java.awt.Dimension(3000000, 32769));
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/editar.png"))); // NOI18N
         jMenu1.setText("Asistencia");
@@ -146,7 +150,9 @@ public class EmpleadoC extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(central)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(central, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

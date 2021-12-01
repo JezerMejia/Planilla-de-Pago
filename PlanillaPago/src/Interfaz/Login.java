@@ -8,6 +8,7 @@ package Interfaz;
 import Interfaz.mdiAdministrador.AdministradorC;
 import Interfaz.mdiEmpleado.EmpleadoC;
 import java.awt.Color;
+import java.io.InputStream;
 import javax.swing.JOptionPane;
 
 /**
@@ -233,6 +234,7 @@ public class Login extends javax.swing.JFrame {
         AdministradorC adm = new AdministradorC();
         
         if(id.getText().equals("123")){
+            
             cen.setVisible(true);
              dispose();
         
