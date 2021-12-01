@@ -6,26 +6,27 @@ package Interfaz.mdiEmpleado;
 
 
 import Interfaz.Login;
-import Interfaz.mdiEmpleado.ImagenFondo;
-import java.awt.image.BufferedImage;
-import java.io.InputStream;
-import javax.imageio.ImageIO;
+import static Interfaz.mdiAdministrador.AdministradorC.centralA;
+import java.awt.Dimension;
+import javax.swing.ImageIcon;
 
 
 
 public class EmpleadoC extends javax.swing.JFrame {
     
-    public InputStream foto1 = this.getClass().getResourceAsStream("/Iconos/fondoCentral.png");
+    //public InputStream foto1 = this.getClass().getResourceAsStream("/Iconos/fondoCentral.png");
                 
     
     public EmpleadoC() {
         initComponents();
         this.setLocationRelativeTo(null);
-        cargarImagen(central,foto1);
-        setSize(999,580);
+     // cargarImagen(central,foto1);
+        
+        setSize(1000,700);
+        setIconImage(new ImageIcon(getClass().getResource("/Iconos/logo.png")).getImage());
     }
     
-    public void cargarImagen(javax.swing.JDesktopPane jDesk, InputStream fileImage){
+    /*public void cargarImagen(javax.swing.JDesktopPane jDesk, InputStream fileImage){
       
         try{
             BufferedImage image = ImageIO.read(fileImage);
@@ -35,6 +36,7 @@ public class EmpleadoC extends javax.swing.JFrame {
         }
         
     }
+    */
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -56,8 +58,9 @@ public class EmpleadoC extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Administrador");
 
-        central.setBackground(new java.awt.Color(255, 102, 0));
+        central.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout centralLayout = new javax.swing.GroupLayout(central);
         central.setLayout(centralLayout);
@@ -71,7 +74,7 @@ public class EmpleadoC extends javax.swing.JFrame {
         );
 
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
-        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
         jMenuBar1.setMaximumSize(new java.awt.Dimension(3000000, 32769));
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/editar.png"))); // NOI18N
@@ -166,6 +169,11 @@ public class EmpleadoC extends javax.swing.JFrame {
         Asistencia as = new Asistencia();
         
         central.add(as);
+        Dimension desktopSize = centralA.getSize();
+        Dimension FrameSize = as.getSize();
+        as.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+        as.show();
+        as.toFront();
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jMenu2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseEntered
@@ -176,17 +184,32 @@ public class EmpleadoC extends javax.swing.JFrame {
         Adelantos ad = new Adelantos();
         
         central.add(ad);
+        Dimension desktopSize = centralA.getSize();
+        Dimension FrameSize = ad.getSize();
+        ad.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+        ad.show();
+        ad.toFront();
     }//GEN-LAST:event_jMenu2MouseClicked
 
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
         Pagos pa = new Pagos();
         central.add(pa);
+        Dimension desktopSize = centralA.getSize();
+        Dimension FrameSize = pa.getSize();
+        pa.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+        pa.show();
+        pa.toFront();
     }//GEN-LAST:event_jMenu3MouseClicked
 
     private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
         sobreMi sm = new sobreMi();
         
         central.add(sm);
+        Dimension desktopSize = centralA.getSize();
+        Dimension FrameSize = sm.getSize();
+        sm.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+        sm.show();
+        sm.toFront();
     }//GEN-LAST:event_jMenu4MouseClicked
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed

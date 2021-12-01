@@ -6,9 +6,12 @@ package Interfaz.mdiAdministrador;
 
 import Interfaz.Login;
 import Interfaz.mdiEmpleado.ImagenFondo;
+import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -16,17 +19,20 @@ import javax.imageio.ImageIO;
  */
 public class AdministradorC extends javax.swing.JFrame {
 
-   public InputStream foto1 = this.getClass().getResourceAsStream("/Iconos/fondoCentral.png");
+   //public InputStream foto1 = this.getClass().getResourceAsStream("/Iconos/fondoCentral.png");
     
     public AdministradorC() {
         initComponents();
         this.setLocationRelativeTo(null);
-        cargarImagen(centralA,foto1);
-        setSize(999,580);
+        //cargarImagen(centralA,foto1);
+        setSize(1000,700);
+        setIconImage(new ImageIcon(getClass().getResource("/Iconos/logo.png")).getImage());
+        logo.setHorizontalAlignment(SwingConstants.CENTER);
+        logo.setVerticalAlignment(SwingConstants.CENTER);
         
     }
     
-    public void cargarImagen(javax.swing.JDesktopPane jDesk, InputStream fileImage){
+    /*public void cargarImagen(javax.swing.JDesktopPane jDesk, InputStream fileImage){
       
         try{
             BufferedImage image = ImageIO.read(fileImage);
@@ -36,13 +42,14 @@ public class AdministradorC extends javax.swing.JFrame {
         }
         
     }
-    
+    */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jMenu4 = new javax.swing.JMenu();
         centralA = new javax.swing.JDesktopPane();
+        logo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -55,21 +62,38 @@ public class AdministradorC extends javax.swing.JFrame {
         jMenu4.setText("jMenu4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Empleado");
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
-        centralA.setBackground(new java.awt.Color(255, 102, 0));
+        centralA.setBackground(new java.awt.Color(255, 255, 255));
+
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/logo3.png"))); // NOI18N
+
+        centralA.setLayer(logo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout centralALayout = new javax.swing.GroupLayout(centralA);
         centralA.setLayout(centralALayout);
         centralALayout.setHorizontalGroup(
             centralALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centralALayout.createSequentialGroup()
+                .addContainerGap(277, Short.MAX_VALUE)
+                .addComponent(logo)
+                .addGap(157, 157, 157))
         );
         centralALayout.setVerticalGroup(
             centralALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 519, Short.MAX_VALUE)
+            .addGroup(centralALayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(logo)
+                .addContainerGap(635, Short.MAX_VALUE))
         );
 
-        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/metodo-de-pago (1).png"))); // NOI18N
         jMenu1.setText("Realizar Pago");
@@ -134,7 +158,7 @@ public class AdministradorC extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(centralA)
+            .addComponent(centralA, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,6 +174,12 @@ public class AdministradorC extends javax.swing.JFrame {
         RealizarPago rp = new RealizarPago();
         
         centralA.add(rp);
+        Dimension desktopSize = centralA.getSize();
+        Dimension FrameSize = rp.getSize();
+        rp.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+        rp.show();
+        rp.toFront();
+        
         
     }//GEN-LAST:event_jMenu1MouseClicked
 
@@ -157,18 +187,33 @@ public class AdministradorC extends javax.swing.JFrame {
         Solicitudes sol = new Solicitudes();
         
         centralA.add(sol);
+        Dimension desktopSize = centralA.getSize();
+        Dimension FrameSize = sol.getSize();
+        sol.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+        sol.show();
+        sol.toFront();
     }//GEN-LAST:event_jMenu2MouseClicked
 
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
         Trabajadores trab = new Trabajadores();
-        
+         
         centralA.add(trab);
+        Dimension desktopSize = centralA.getSize();
+        Dimension FrameSize = trab.getSize();
+        trab.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+        trab.show();
+        trab.toFront();
     }//GEN-LAST:event_jMenu3MouseClicked
 
     private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
        sobreMi sm = new sobreMi();
        
        centralA.add(sm);
+       Dimension desktopSize = centralA.getSize();
+        Dimension FrameSize = sm.getSize();
+        sm.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+        sm.show();
+        sm.toFront();
     }//GEN-LAST:event_jMenu5MouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -181,6 +226,10 @@ public class AdministradorC extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
        System.exit(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formMouseClicked
 
     /**
      * @param args the command line arguments
@@ -218,7 +267,7 @@ public class AdministradorC extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane centralA;
+    public static javax.swing.JDesktopPane centralA;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -228,5 +277,6 @@ public class AdministradorC extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JLabel logo;
     // End of variables declaration//GEN-END:variables
 }

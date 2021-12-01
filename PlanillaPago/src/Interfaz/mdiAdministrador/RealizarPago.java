@@ -33,6 +33,7 @@ public class RealizarPago extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximumSize(new java.awt.Dimension(76, 2147483647));
+        setVisible(true);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

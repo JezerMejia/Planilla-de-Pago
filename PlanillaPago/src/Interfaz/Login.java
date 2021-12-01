@@ -9,6 +9,7 @@ import Interfaz.mdiAdministrador.AdministradorC;
 import Interfaz.mdiEmpleado.EmpleadoC;
 import java.awt.Color;
 import java.io.InputStream;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,6 +25,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         
         this.setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/Iconos/logo.png")).getImage());
     }
 
     /**
@@ -53,6 +55,7 @@ public class Login extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(600, 450));

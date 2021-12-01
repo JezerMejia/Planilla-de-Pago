@@ -32,6 +32,7 @@ public class Solicitudes extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
+        setVisible(true);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

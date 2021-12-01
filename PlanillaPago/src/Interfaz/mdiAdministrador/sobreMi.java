@@ -36,6 +36,7 @@ public class sobreMi extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
+        setVisible(true);
 
         jLabel1.setText("Nombre");
 
