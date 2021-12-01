@@ -43,7 +43,6 @@ public class EmpleadoC extends javax.swing.JFrame {
     private void initComponents() {
 
         central = new javax.swing.JDesktopPane();
-        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -57,35 +56,20 @@ public class EmpleadoC extends javax.swing.JFrame {
 
         central.setBackground(new java.awt.Color(153, 153, 153));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        central.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout centralLayout = new javax.swing.GroupLayout(central);
         central.setLayout(centralLayout);
         centralLayout.setHorizontalGroup(
             centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(centralLayout.createSequentialGroup()
-                .addGap(317, 317, 317)
-                .addComponent(jButton1)
-                .addContainerGap(582, Short.MAX_VALUE))
+            .addGap(0, 972, Short.MAX_VALUE)
         );
         centralLayout.setVerticalGroup(
             centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(centralLayout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jButton1)
-                .addContainerGap(407, Short.MAX_VALUE))
+            .addGap(0, 499, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/editar (1).png"))); // NOI18N
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/editar.png"))); // NOI18N
         jMenu1.setText("Asistencia");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -94,7 +78,7 @@ public class EmpleadoC extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/completar (1).png"))); // NOI18N
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/completar.png"))); // NOI18N
         jMenu2.setText("Adelantos");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -124,7 +108,7 @@ public class EmpleadoC extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu4);
 
-        menuSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/cerrar-sesion (1).png"))); // NOI18N
+        menuSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/cerrar-sesion.png"))); // NOI18N
         menuSalir.setText("Salir");
         menuSalir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -198,10 +182,6 @@ public class EmpleadoC extends javax.swing.JFrame {
         central.add(sm);
     }//GEN-LAST:event_jMenu4MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     cargarImagen(central,foto1);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
@@ -262,7 +242,6 @@ public class EmpleadoC extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane central;
-    private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
