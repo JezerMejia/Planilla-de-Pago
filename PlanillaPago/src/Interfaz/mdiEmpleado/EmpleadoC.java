@@ -20,6 +20,7 @@ public class EmpleadoC extends javax.swing.JFrame {
     
     public EmpleadoC() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     
     public void cargarImagen(javax.swing.JDesktopPane jDesk, InputStream fileImage){
@@ -54,7 +55,7 @@ public class EmpleadoC extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        central.setBackground(new java.awt.Color(153, 153, 153));
+        central.setBackground(new java.awt.Color(204, 204, 255));
 
         javax.swing.GroupLayout centralLayout = new javax.swing.GroupLayout(central);
         central.setLayout(centralLayout);

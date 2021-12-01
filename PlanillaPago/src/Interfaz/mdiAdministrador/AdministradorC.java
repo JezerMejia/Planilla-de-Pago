@@ -17,6 +17,7 @@ public class AdministradorC extends javax.swing.JFrame {
      */
     public AdministradorC() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -74,7 +75,7 @@ public class AdministradorC extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/empleado (1).png"))); // NOI18N
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/empleado.png"))); // NOI18N
         jMenu3.setText("Empleados");
         jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -92,7 +93,7 @@ public class AdministradorC extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu5);
 
-        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/cerrar-sesion (1).png"))); // NOI18N
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/cerrar-sesion.png"))); // NOI18N
         jMenu6.setText("Salir");
 
         jMenuItem1.setText("Cerrar Sesion");
