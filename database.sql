@@ -14,7 +14,7 @@ CREATE TABLE Empleados
     apellido nvarchar(60) NULL,
     privilegios int NOT NULL,
     cargo nvarchar(30) NULL,
-    contraseña nvarchar(60) NULL,
+    contraseña nvarchar(60) NULL
 )
 
 CREATE TABLE Adelantos
@@ -24,7 +24,7 @@ CREATE TABLE Adelantos
     adelanto float NOT NULL,
     fecha date NOT NULL,
     justificación nvarchar(255) NOT NULL,
-    idEmpleado int NOT NULL foreign key references Empleados(id),
+    idEmpleado int NOT NULL foreign key references Empleados(id) ON UPDATE CASCADE ON DELETE CASCADE
 )
 
 CREATE TABLE Pagos
@@ -32,7 +32,7 @@ CREATE TABLE Pagos
     num int IDENTITY(1, 1) NOT NULL primary key,
     monto float NOT NULL,
     fecha date NOT NULL,
-    idEmpleado int NOT NULL foreign key references Empleados(id),
+    idEmpleado int NOT NULL foreign key references Empleados(id) ON UPDATE CASCADE ON DELETE CASCADE
 )
 
 CREATE TABLE Asistencias
@@ -40,7 +40,7 @@ CREATE TABLE Asistencias
     num int IDENTITY(1, 1) NOT NULL primary key,
     asistencia int NOT NULL,
     fecha datetime NOT NULL,
-    idEmpleado int NOT NULL foreign key references Empleados(id)
+    idEmpleado int NOT NULL foreign key references Empleados(id) ON UPDATE CASCADE ON DELETE CASCADE
 )
 
 GO
