@@ -29,13 +29,12 @@ public class Empleado {
         this.contraseña = contraseña;
         this.m_PlanillaPago = m_PlanillaPago;
     }
-    public Empleado(Integer id, String nombre, String apellido, String cargo, String contraseña, Integer privilegios) {
+    public Empleado(Integer id, String nombre, String apellido, String cargo, String contraseña) {
         this.apellido = apellido;
         this.cargo = cargo;
         this.id = id;
         this.nombre = nombre;
         this.contraseña = contraseña;
-        this.privilegios = privilegios;
     }
 
     public Empleado(){

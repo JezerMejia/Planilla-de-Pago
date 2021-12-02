@@ -75,7 +75,8 @@ public class RegistroAsistencia {
         return "{ " +
             "num: " + this.num + ", " +
             "fecha: \"" + df.format(this.fecha) + "\", " +
-            "asistencia: " + this.asistencia +
+            "asistencia: " + this.asistencia + ", " +
+            "idEmpleado: " + this.empleado.getId() +
             " }";
     }
 }//end RegistroAsistencia

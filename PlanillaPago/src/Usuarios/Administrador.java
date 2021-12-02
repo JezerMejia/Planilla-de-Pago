@@ -12,8 +12,8 @@ public class Administrador extends Empleado {
 
     protected Integer privilegios = 1;
 
-    public Administrador(Integer id, String nombre, String apellido, String cargo, PlanillaPago m_PlanillaPago) {
-        super(id, nombre, apellido, cargo, m_PlanillaPago);
+    public Administrador(Integer id, String nombre, String apellido, String cargo, String contraseña) {
+        super(id, nombre, apellido, cargo, contraseña);
     }
 
     public Administrador(){

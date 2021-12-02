@@ -1,6 +1,7 @@
 package Tablas;
 
 import Planilla.PlanillaPago;
+import Usuarios.Administrador;
 import Usuarios.Empleado;
 import Conexion.Conexion;
 import java.sql.Connection;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 public class TablaEmpleados {
 
     private ArrayList<Empleado> empleados = new ArrayList<>();
+    private Administrador defaultAdmin;
     private final Conexion conexion = new Conexion();
     private Connection conn;
     private PreparedStatement mostrarRegistros;
@@ -27,6 +29,7 @@ public class TablaEmpleados {
     private PlanillaPago planillaPago;
 
     public TablaEmpleados(PlanillaPago planilla) {
+        this.defaultAdmin = new Administrador(1, "Admin", "", "Administrador", "123");
         this.planillaPago = planilla;
         this.conn = this.conexion.obtenerConexion();
         try {
@@ -52,25 +55,27 @@ public class TablaEmpleados {
             rs = this.mostrarRegistros.executeQuery();
 
             while (rs.next()) {
-                Empleado nuevoEmpleado = new Empleado(
-                    rs.getInt("id"),
-                    rs.getString("nombre"),
-                    rs.getString("apellido"),
-                    rs.getString("cargo"),
-                    rs.getString("contraseña"),
-                    rs.getInt("privilegios")
-                    );
-                result.add(nuevoEmpleado);
+                int id = rs.getInt("id");
+                String nombre = rs.getString("nombre");
+                String apellido = rs.getString("apellido");
+                String cargo = rs.getString("cargo");
+                String contraseña = rs.getString("contraseña");
+                int privilegios = rs.getInt("privilegios");
+                if (privilegios == 0)
+                    result.add(new Empleado(id, nombre, apellido, cargo, contraseña));
+                else
+                    result.add(new Administrador(id, nombre, apellido, cargo, contraseña));
             }
             rs.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         this.empleados = result;
+        this.empleados.add(this.defaultAdmin);
     }
 
     public boolean añadirEmpleado(int id, String nombre, String apellido, String cargo, String contraseña) {
-        Empleado nuevoEmpleado = new Empleado(id, nombre, apellido, cargo, contraseña, 0);
+        Empleado nuevoEmpleado = new Empleado(id, nombre, apellido, cargo, contraseña);
 
         try {
             this.insertarRegistros.setInt(1, id);
