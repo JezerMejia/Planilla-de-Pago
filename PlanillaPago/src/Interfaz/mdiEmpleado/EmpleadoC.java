@@ -72,6 +72,7 @@ public class EmpleadoC extends javax.swing.JFrame {
         setTitle("Administrador");
 
         centralE.setBackground(new java.awt.Color(255, 255, 255));
+        centralE.setOpaque(false);
 
         logoEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/logo3.png"))); // NOI18N
 
@@ -82,16 +83,16 @@ public class EmpleadoC extends javax.swing.JFrame {
         centralELayout.setHorizontalGroup(
             centralELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centralELayout.createSequentialGroup()
-                .addContainerGap(346, Short.MAX_VALUE)
+                .addContainerGap(230, Short.MAX_VALUE)
                 .addComponent(logoEmp)
-                .addGap(288, 288, 288))
+                .addContainerGap(233, Short.MAX_VALUE))
         );
         centralELayout.setVerticalGroup(
             centralELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(centralELayout.createSequentialGroup()
-                .addGap(144, 144, 144)
+                .addContainerGap(120, Short.MAX_VALUE)
                 .addComponent(logoEmp)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         barraMEmpleado.setBackground(new java.awt.Color(255, 169, 133));
@@ -183,7 +184,8 @@ public class EmpleadoC extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(centralE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(centralE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

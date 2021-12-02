@@ -92,16 +92,16 @@ public class AdministradorC extends javax.swing.JFrame {
         centralALayout.setHorizontalGroup(
             centralALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centralALayout.createSequentialGroup()
-                .addContainerGap(348, Short.MAX_VALUE)
+                .addContainerGap(230, Short.MAX_VALUE)
                 .addComponent(logo)
-                .addGap(286, 286, 286))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
         centralALayout.setVerticalGroup(
             centralALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(centralALayout.createSequentialGroup()
-                .addGap(149, 149, 149)
+                .addContainerGap(120, Short.MAX_VALUE)
                 .addComponent(logo)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         BarraMAdministrador.setBackground(new java.awt.Color(255, 169, 133));
@@ -113,6 +113,11 @@ public class AdministradorC extends javax.swing.JFrame {
         rePago.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 rePagoMouseClicked(evt);
+            }
+        });
+        rePago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rePagoActionPerformed(evt);
             }
         });
         BarraMAdministrador.add(rePago);
@@ -175,7 +180,10 @@ public class AdministradorC extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(centralA)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(centralA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,8 +202,6 @@ public class AdministradorC extends javax.swing.JFrame {
         rp.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
         rp.show();
         rp.toFront();
-        
-        
     }//GEN-LAST:event_rePagoMouseClicked
 
     private void solAdelantoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_solAdelantoMouseClicked
@@ -245,6 +251,10 @@ public class AdministradorC extends javax.swing.JFrame {
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_formMouseClicked
+
+    private void rePagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rePagoActionPerformed
+
+    }//GEN-LAST:event_rePagoActionPerformed
 
     /**
      * @param args the command line arguments
