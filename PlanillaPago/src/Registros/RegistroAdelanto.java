@@ -1,6 +1,10 @@
 package Registros;
 
 import Planilla.PlanillaPago;
+import Usuarios.Empleado;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -11,28 +15,61 @@ import java.util.Date;
  */
 public class RegistroAdelanto {
 
-    private boolean aceptado;
+    private int num;
+    private int aceptado;
     private float adelanto;
     private Date fecha;
     private String justificacion;
-    private PlanillaPago m_PlanillaPago;
+    private Empleado empleado;
 
-    public RegistroAdelanto(){
-
+    public RegistroAdelanto(int num, int aceptado, float adelanto, Date fecha, String justificacion){
+        this.num = num;
+        this.aceptado = aceptado;
+        this.adelanto = adelanto;
+        this.fecha = fecha;
+        this.justificacion = justificacion;
     }
 
     /**
      * @return the aceptado
      */
-    public boolean isAceptado() {
+    public int getAceptado() {
         return aceptado;
     }
 
     /**
      * @param aceptado the aceptado to set
      */
-    public void setAceptado(boolean aceptado) {
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    /**
+     * @return the aceptado
+     */
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    /**
+     * @param aceptado the aceptado to set
+     */
+    public void setAceptado(int aceptado) {
         this.aceptado = aceptado;
+    }
+
+    /**
+     * @return the num
+     */
+    public int getNum() {
+        return num;
+    }
+
+    /**
+     * @param aceptado the aceptado to set
+     */
+    public void setNum(int num) {
+        this.num = num;
     }
 
     /**
@@ -77,17 +114,15 @@ public class RegistroAdelanto {
         this.justificacion = justificacion;
     }
 
-    /**
-     * @return the m_PlanillaPago
-     */
-    public PlanillaPago getM_PlanillaPago() {
-        return m_PlanillaPago;
-    }
-
-    /**
-     * @param m_PlanillaPago the m_PlanillaPago to set
-     */
-    public void setM_PlanillaPago(PlanillaPago m_PlanillaPago) {
-        this.m_PlanillaPago = m_PlanillaPago;
+    public String toString() {
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        return "{ " +
+            "num: " + this.num + ", " +
+            "aceptado: " + this.aceptado + ", " +
+            "adelanto: " + this.adelanto + ", " +
+            "justificacion: \"" + this.justificacion + "\", " +
+            "fecha: \"" + df.format(this.fecha) + "\", " +
+            "idEmpleado: " + this.empleado.getId() +
+            " }";
     }
 }//end RegistroAdelanto

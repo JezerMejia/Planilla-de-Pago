@@ -15,17 +15,27 @@ public class Empleado {
 
     protected String apellido;
     protected String cargo;
+    protected String contraseña;
     protected Integer id;
     protected String nombre;
     protected Integer privilegios = 0;
     protected PlanillaPago m_PlanillaPago;
 
-    public Empleado(Integer id, String nombre, String apellido, String cargo, PlanillaPago m_PlanillaPago) {
+    public Empleado(Integer id, String nombre, String apellido, String cargo, String contraseña, PlanillaPago m_PlanillaPago) {
         this.apellido = apellido;
         this.cargo = cargo;
         this.id = id;
         this.nombre = nombre;
+        this.contraseña = contraseña;
         this.m_PlanillaPago = m_PlanillaPago;
+    }
+    public Empleado(Integer id, String nombre, String apellido, String cargo, String contraseña, Integer privilegios) {
+        this.apellido = apellido;
+        this.cargo = cargo;
+        this.id = id;
+        this.nombre = nombre;
+        this.contraseña = contraseña;
+        this.privilegios = privilegios;
     }
 
     public Empleado(){
@@ -116,6 +126,20 @@ public class Empleado {
     }
 
     /**
+     * @return the contraseña
+     */
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    /**
+     * @param contraseña the contraseña to set
+     */
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    /**
      * @return the m_PlanillaPago
      */
     public PlanillaPago getM_PlanillaPago() {
@@ -127,5 +151,14 @@ public class Empleado {
      */
     public void setM_PlanillaPago(PlanillaPago m_PlanillaPago) {
         this.m_PlanillaPago = m_PlanillaPago;
+    }
+
+    public String toString() {
+        return "{ " +
+            "id: " + this.id + ", " +
+            "nombre: \"" + this.nombre + "\", " +
+            "apellido: \"" + this.apellido + "\", " +
+            "cargo: \"" + this.cargo + "\"" +
+            " }";
     }
 }//end Empleado

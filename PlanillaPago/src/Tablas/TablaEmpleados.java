@@ -17,117 +17,149 @@ import java.util.ArrayList;
  */
 public class TablaEmpleados {
 
-    private ArrayList<Empleado> empleados;
+    private ArrayList<Empleado> empleados = new ArrayList<>();
     private final Conexion conexion = new Conexion();
     private Connection conn;
-    private PreparedStatement mostrarEmpleados;
+    private PreparedStatement mostrarRegistros;
     private PreparedStatement insertarRegistros;
     private PreparedStatement modificarRegistros;
     private PreparedStatement eliminarRegistros;
-/*
-    public TablaEmpleados(){
-        try{
-            conn = conexion.obtenerConexion();
-            mostrarEmpleados = conn.prepareStatement("Select * from Empleados");
-            insertarRegistros = conn.prepareStatement("Insert Into Autor(id," + "nombrePila,"
-                                + " apellidoPaterno," + "apellido," + "privilegios," + "cargo) Values(?, ?, ?, ?)");
-            modificarRegistros = conn.prepareStatement("Update Empleados set id=?, " + "nombre = ?," 
-                                + "apellido = ?, " + "privilegios=?," + "cargo=? where id = ?");
-            eliminarRegistros = conn.prepareStatement("Delete From  Empleados where idAutor = ?");
-            empleados = new ArrayList<>();
-            
-            empleados = listarEmpleado();
-        }catch(SQLException ex){
-                System.out.println(ex.getMessage());
-                System.exit(1);
+    private PlanillaPago planillaPago;
+
+    public TablaEmpleados(PlanillaPago planilla) {
+        this.planillaPago = planilla;
+        this.conn = this.conexion.obtenerConexion();
+        try {
+            this.mostrarRegistros = this.conn.prepareStatement("SELECT * FROM Empleados");
+            this.insertarRegistros = this.conn.prepareStatement("INSERT INTO " +
+                    "Empleados(id, nombre, apellido, privilegios, cargo, contraseña) " +
+                    "VALUES(?, ?, ?, ?, ?, ?)");
+            this.modificarRegistros = this.conn.prepareStatement("UPDATE Empleados SET " +
+                    "id=?, nombre=?, apellido=?, privilegios=?, cargo=?, contraseña=? " +
+                    "WHERE id=?");
+            this.eliminarRegistros = this.conn.prepareStatement("DELETE FROM Empleados WHERE id=?");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
+        this.actualizarRegistros();
     }
-    
-    private ArrayList<Empleado> listarEmpleado(){
-       ArrayList<Empleado> result = null;
-       ResultSet rs = null;
-       try{
-           rs = mostrarEmpleados.executeQuery();
-           result = new ArrayList<>();
-           
-           while(rs.next()){
-               result.add(new Empleado(
+
+    public void actualizarRegistros() {
+        ArrayList<Empleado> result = new ArrayList<>();
+        ResultSet rs;
+
+        try {
+            rs = this.mostrarRegistros.executeQuery();
+
+            while (rs.next()) {
+                Empleado nuevoEmpleado = new Empleado(
                     rs.getInt("id"),
                     rs.getString("nombre"),
                     rs.getString("apellido"),
-                    rs.getString("privilegios"),
                     rs.getString("cargo"),
-                    1 //estado original 
-               ));  
-           }
-       
-       }catch(SQLException ex){
-            ex.printStackTrace();
-       }finally{
-           try{
-              rs.close();
-           }catch(SQLException ex){
-              conexion.close(conn);
-           }
-       }
-       return result;
-    }
-    
-    public int agregarLista(int id,String nombre, String apellido, String cargo){
-       try{
-           empleados.add(new Empleado(0,
-                   nombrePila,
-                   apellidoPaterno,
-                   4 // estado nuevo registrado, sin guardar
-                   ));
-       return 1;
-       }catch(Exception ex){
-           System.out.println(ex.getMessage());
-       }
-       
-       return 0;
-    }
-    
-    
-    public int editarLista(int idAutor, String nombrePila, String apellidoPaterno){
-        try{
-            Empleado emp = new Empleado(
-              id,
-              nombre,
-              apellido,
-              cargo,
-              2 // estafdo modifcado de la lista
-            );
-            
-            for(Empleado e: Lista){
-                if(e.getId() == emp.getId()){
-                    e.setNombre(emp.getNombre());
-                    e.setApellido(emp.getApellido());
-                    if(emp.getEstado()!=0) e.setEstado(emp.getEstado());
-                    return 1;
-                }
+                    rs.getString("contraseña"),
+                    rs.getInt("privilegios")
+                    );
+                result.add(nuevoEmpleado);
             }
-        }catch(Exception ex){
-            System.out.println(ex.getMessage());
+            rs.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
-        return 0;
+        this.empleados = result;
+    }
+
+    public boolean añadirEmpleado(int id, String nombre, String apellido, String cargo, String contraseña) {
+        Empleado nuevoEmpleado = new Empleado(id, nombre, apellido, cargo, contraseña, 0);
+
+        try {
+            this.insertarRegistros.setInt(1, id);
+            this.insertarRegistros.setString(2, nombre);
+            this.insertarRegistros.setString(3, apellido);
+            this.insertarRegistros.setInt(4, 0);
+            this.insertarRegistros.setString(5, cargo);
+            this.insertarRegistros.setString(6, contraseña);
+            this.insertarRegistros.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+
+        this.empleados.add(nuevoEmpleado);
+        return true;
+    }
+
+    public boolean editarEmpleado(int id, String nombre, String apellido, String cargo, String contraseña, int privilegios) {
+        Empleado empleado = null;
+
+        for (int i = 0; i < this.empleados.size(); i++) {
+            if (this.empleados.get(i).getId() == id) {
+                empleado = this.empleados.get(i);
+            }
+        }
+
+        if (empleado == null) return false;
+
+        try {
+            this.modificarRegistros.setInt(1, id);
+            this.modificarRegistros.setString(2, nombre);
+            this.modificarRegistros.setString(3, apellido);
+            this.modificarRegistros.setInt(4, privilegios);
+            this.modificarRegistros.setString(5, cargo);
+            this.modificarRegistros.setString(6, contraseña);
+            this.modificarRegistros.setInt(7, id);
+            this.modificarRegistros.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+
+        empleado.setNombre(nombre);
+        empleado.setApellido(apellido);
+        empleado.setCargo(cargo);
+        empleado.setContraseña(contraseña);
+        empleado.setPrivilegios(privilegios);
+        return true;
+    }
+
+    public boolean eliminarEmpleado(int id) {
+        int index = -1;
+        for (int i = 0; i < this.empleados.size(); i++) {
+            if (this.empleados.get(i).getId() == id) {
+                index = i;
+                break;
+            }
+        }
+        if (index == -1) return false;
+
+        try {
+            this.eliminarRegistros.setInt(1, id);
+            this.eliminarRegistros.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+
+        this.empleados.remove(id);
+        return true;
     }
     
-  */  
-    public void mostrarEmpleados(){
-    }
-    
-    
-    
-    public void añadirEmpleado(Empleado empleado){
-        this.empleados.add(empleado);
+    public Empleado buscarEmpleado(int id) {
+        for (Empleado e : this.empleados) {
+            if (e.getId() == id)
+                return e;
+        }
+        return null;
     }
 
     public ArrayList<Empleado> getTabla(){
         return empleados;
     }
-    
-    public void buscarEmpleado(){
-    
+
+    public static void main(String[] argv) {
+        PlanillaPago planilla = new PlanillaPago();
+        TablaEmpleados tablaEmpleados = new TablaEmpleados(planilla);
+        tablaEmpleados.actualizarRegistros();
+        System.out.println(tablaEmpleados.getTabla());
     }
 }//end TablaEmpleados

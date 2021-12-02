@@ -1,6 +1,10 @@
 package Registros;
 
 import Planilla.PlanillaPago;
+import Usuarios.Empleado;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -11,12 +15,31 @@ import java.util.Date;
  */
 public class RegistroPago {
 
+    private int num;
     private Date fecha;
     private Float monto;
-    private PlanillaPago m_PlanillaPago;
+    private Empleado empleado;
 
-    public RegistroPago(){
+    public RegistroPago(int num, Float monto, Date fecha){
+        this.num = num;
+        this.fecha = fecha;
+        this.monto = monto;
+    }
 
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 
     /**
@@ -47,17 +70,12 @@ public class RegistroPago {
         this.monto = monto;
     }
 
-    /**
-     * @return the m_PlanillaPago
-     */
-    public PlanillaPago getM_PlanillaPago() {
-        return m_PlanillaPago;
-    }
-
-    /**
-     * @param m_PlanillaPago the m_PlanillaPago to set
-     */
-    public void setM_PlanillaPago(PlanillaPago m_PlanillaPago) {
-        this.m_PlanillaPago = m_PlanillaPago;
+    public String toString() {
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        return "{ " +
+            "num: " + this.num + ", " +
+            "fecha: \"" + df.format(this.fecha) + "\", " +
+            "monto: " + this.monto +
+            " }";
     }
 }//end RegistroPago

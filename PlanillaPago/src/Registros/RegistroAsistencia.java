@@ -1,6 +1,10 @@
 package Registros;
 
 import Planilla.PlanillaPago;
+import Usuarios.Empleado;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -11,25 +15,44 @@ import java.util.Date;
  */
 public class RegistroAsistencia {
 
-    private boolean asistencia;
+    private int num;
+    private int asistencia;
     private Date fecha;
-    private PlanillaPago m_PlanillaPago;
+    private Empleado empleado;
 
-    public RegistroAsistencia(){
+    public RegistroAsistencia(int num, int asistencia, Date fecha){
+        this.num = num;
+        this.asistencia = asistencia;
+        this.fecha = fecha;
+    }
 
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
     }
 
     /**
      * @return the asistencia
      */
-    public boolean isAsistencia() {
+    public int getAsistencia() {
         return asistencia;
     }
 
     /**
      * @param asistencia the asistencia to set
      */
-    public void setAsistencia(boolean asistencia) {
+    public void setAsistencia(int asistencia) {
         this.asistencia = asistencia;
     }
 
@@ -47,17 +70,12 @@ public class RegistroAsistencia {
         this.fecha = fecha;
     }
 
-    /**
-     * @return the m_PlanillaPago
-     */
-    public PlanillaPago getM_PlanillaPago() {
-        return m_PlanillaPago;
-    }
-
-    /**
-     * @param m_PlanillaPago the m_PlanillaPago to set
-     */
-    public void setM_PlanillaPago(PlanillaPago m_PlanillaPago) {
-        this.m_PlanillaPago = m_PlanillaPago;
+    public String toString() {
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        return "{ " +
+            "num: " + this.num + ", " +
+            "fecha: \"" + df.format(this.fecha) + "\", " +
+            "asistencia: " + this.asistencia +
+            " }";
     }
 }//end RegistroAsistencia
