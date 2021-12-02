@@ -247,10 +247,16 @@ public class Login extends javax.swing.JFrame {
     private void entrarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarBActionPerformed
         int id = Integer.parseInt(this.id.getText());
         Empleado empleado = this.planillaPago.getTablaEmpleados().buscarEmpleado(id);
-        if (empleado == null) return;
+        if (empleado == null) {
+          JOptionPane.showMessageDialog(this, "Empleado no encontrado");
+          return;
+        }
 
-        if (!String.valueOf(contra.getPassword()).equals(empleado.getContraseña()))
-            return;
+        if (!String.valueOf(contra.getPassword()).equals(empleado.getContraseña())) {
+          JOptionPane.showMessageDialog(this, "Contraseña incorrecta");
+          return;
+        }
+        empleado.setPlanillaPago(this.planillaPago);
 
         if (empleado.getPrivilegios() == 0) {
             EmpleadoC cen = new EmpleadoC();

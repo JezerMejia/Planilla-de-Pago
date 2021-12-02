@@ -51,14 +51,14 @@ public class Administrador extends Empleado {
     /**
      * @return the m_PlanillaPago
      */
-    public PlanillaPago getM_PlanillaPago() {
-        return m_PlanillaPago;
+    public PlanillaPago getPlanillaPago() {
+        return planillaPago;
     }
 
     /**
      * @param m_PlanillaPago the m_PlanillaPago to set
      */
-    public void setM_PlanillaPago(PlanillaPago m_PlanillaPago) {
-        this.m_PlanillaPago = m_PlanillaPago;
+    public void setPlanillaPago(PlanillaPago m_PlanillaPago) {
+        this.planillaPago = m_PlanillaPago;
     }
 }//end Administrador

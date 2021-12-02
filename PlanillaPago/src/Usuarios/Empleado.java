@@ -19,7 +19,7 @@ public class Empleado {
     protected Integer id;
     protected String nombre;
     protected Integer privilegios = 0;
-    protected PlanillaPago m_PlanillaPago;
+    protected PlanillaPago planillaPago;
 
     public Empleado(Integer id, String nombre, String apellido, String cargo, String contraseña, PlanillaPago m_PlanillaPago) {
         this.apellido = apellido;
@@ -27,7 +27,7 @@ public class Empleado {
         this.id = id;
         this.nombre = nombre;
         this.contraseña = contraseña;
-        this.m_PlanillaPago = m_PlanillaPago;
+        this.planillaPago = m_PlanillaPago;
     }
     public Empleado(Integer id, String nombre, String apellido, String cargo, String contraseña) {
         this.apellido = apellido;
@@ -141,15 +141,15 @@ public class Empleado {
     /**
      * @return the m_PlanillaPago
      */
-    public PlanillaPago getM_PlanillaPago() {
-        return m_PlanillaPago;
+    public PlanillaPago getPlanillaPago() {
+        return planillaPago;
     }
 
     /**
      * @param m_PlanillaPago the m_PlanillaPago to set
      */
-    public void setM_PlanillaPago(PlanillaPago m_PlanillaPago) {
-        this.m_PlanillaPago = m_PlanillaPago;
+    public void setPlanillaPago(PlanillaPago m_PlanillaPago) {
+        this.planillaPago = m_PlanillaPago;
     }
 
     public String toString() {
