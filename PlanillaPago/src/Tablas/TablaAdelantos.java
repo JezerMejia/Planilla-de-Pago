@@ -46,6 +46,9 @@ public class TablaAdelantos {
         }
     }
 
+    /**
+     * Actualiza/carga los registros en memoria
+     */
     public void actualizarRegistros() {
         ArrayList<RegistroAdelanto> result = new ArrayList<>();
         ResultSet rs;
@@ -73,6 +76,14 @@ public class TablaAdelantos {
         this.registrosAdelanto = result;
     }
 
+    /**
+     * Añade un registro en memoria y en la base de datos
+     * Tipo de registro: Adelanto
+     * @param adelanto Monto solicitado
+     * @param fecha La fecha al momento de realizar la solicitud
+     * @param justificacion La justificación de la solicitud
+     * @param empleado El empleado que hace la solicitud
+     */
     public boolean añadirRegistro(float adelanto, Date fecha, String justificacion, Empleado empleado) {
         java.sql.Timestamp sqlDate = new java.sql.Timestamp(fecha.getTime());
 
@@ -93,7 +104,10 @@ public class TablaAdelantos {
     }
 
     /**
-     * Nothing
+     * Modifica un registro en memoria y en la base de datos
+     * Tipo de registro: Adelanto
+     * @param num El número de registro
+     * @param aceptado 0: en espera, 1: aceptado, 2: rechazado
      */
     public boolean editarRegistro(int num, int aceptado){
         RegistroAdelanto registro = null;
@@ -121,6 +135,9 @@ public class TablaAdelantos {
         return true;
     }
 
+    /**
+     * Obtiene la tabla en un ArrayList
+     */
     public ArrayList<RegistroAdelanto> getTabla(){
         return registrosAdelanto;
     }

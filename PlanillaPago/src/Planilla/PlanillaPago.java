@@ -73,7 +73,20 @@ public class PlanillaPago {
      * @param num El número del registro
      */
     public boolean aceptarAdelanto(int aceptado, int numRegistro){
-        return this.tablaAdelantos.editarRegistro(numRegistro, aceptado);
+        RegistroAdelanto adelanto = null;
+
+        for (RegistroAdelanto registro : this.tablaAdelantos.getTabla()) {
+            if (registro.getNum() == numRegistro) {
+                adelanto = registro;
+                break;
+            }
+        }
+        if (adelanto == null) return false;
+
+        this.tablaAdelantos.editarRegistro(numRegistro, aceptado);
+
+        Date today = Calendar.getInstance().getTime();
+        return this.tablaPagos.añadirRegistro(adelanto.getAdelanto(), today, adelanto.getEmpleado());
     }
 
     /**

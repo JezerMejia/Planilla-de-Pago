@@ -66,6 +66,13 @@ public class TablaPagos {
         this.registrosPago = result;
     }
 
+    /**
+     * Añade un registro en memoria y en la base de datos
+     * Tipo de registro: Pago
+     * @param monto Monto pagado
+     * @param fecha La fecha al momento de realizar el pago
+     * @param empleado El epleado al que se le realiza el pago
+     */
     public boolean añadirRegistro(float monto, Date fecha, Empleado empleado){
         java.sql.Timestamp sqlDate = new java.sql.Timestamp(fecha.getTime());
         System.out.println(sqlDate);
@@ -84,6 +91,9 @@ public class TablaPagos {
         return true;
     }
 
+    /**
+     * Obtiene la tabla en un ArrayList
+     */
     public ArrayList<RegistroPago> getTabla(){
         return registrosPago;
     }

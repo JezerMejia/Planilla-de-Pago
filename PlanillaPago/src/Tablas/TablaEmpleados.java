@@ -47,6 +47,9 @@ public class TablaEmpleados {
         this.actualizarRegistros();
     }
 
+    /**
+     * Actualiza/carga los registros en memoria
+     */
     public void actualizarRegistros() {
         ArrayList<Empleado> result = new ArrayList<>();
         ResultSet rs;
@@ -74,6 +77,15 @@ public class TablaEmpleados {
         this.empleados.add(this.defaultAdmin);
     }
 
+    /**
+     * Añade un empleado en memoria y en la base de datos
+     * Tipo de registro: Empleado
+     * @param id El ID
+     * @param nombre Su nombre
+     * @param apellido Su apellido
+     * @param cargo Su cargo en la empresa
+     * @param contraseña Su contraseña
+     */
     public boolean añadirEmpleado(int id, String nombre, String apellido, String cargo, String contraseña) {
         Empleado nuevoEmpleado = new Empleado(id, nombre, apellido, cargo, contraseña);
 
@@ -94,6 +106,16 @@ public class TablaEmpleados {
         return true;
     }
 
+    /**
+     * Modifica un empleado en memoria y en la base de datos
+     * Tipo de registro: Empleado
+     * @param id El ID
+     * @param nombre Su nombre
+     * @param apellido Su apellido
+     * @param cargo Su cargo en la empresa
+     * @param contraseña Su contraseña
+     * @param privilegios 0: empleado, 1: administrador
+     */
     public boolean editarEmpleado(int id, String nombre, String apellido, String cargo, String contraseña, int privilegios) {
         Empleado empleado = null;
 
@@ -127,6 +149,11 @@ public class TablaEmpleados {
         return true;
     }
 
+    /**
+     * Elimina el empleado en memoria y en la base de datos
+     * Tipo de registro: Empleado
+     * @param id El ID del empleado a borrar
+     */
     public boolean eliminarEmpleado(int id) {
         int index = -1;
         for (int i = 0; i < this.empleados.size(); i++) {
@@ -149,6 +176,10 @@ public class TablaEmpleados {
         return true;
     }
     
+    /**
+     * Busca el id del empleado y lo retorna
+     * @param id El ID a buscar
+     */
     public Empleado buscarEmpleado(int id) {
         for (Empleado e : this.empleados) {
             if (e.getId() == id)
@@ -157,6 +188,9 @@ public class TablaEmpleados {
         return null;
     }
 
+    /**
+     * Obtiene la tabla en un ArrayList
+     */
     public ArrayList<Empleado> getTabla(){
         return empleados;
     }

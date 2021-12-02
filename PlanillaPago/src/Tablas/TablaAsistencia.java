@@ -45,6 +45,9 @@ public class TablaAsistencia {
         }
     }
 
+    /**
+     * Actualiza/carga los registros en memoria
+     */
     public void actualizarRegistros() {
         ArrayList<RegistroAsistencia> result = new ArrayList<>();
         ResultSet rs;
@@ -71,9 +74,11 @@ public class TablaAsistencia {
     }
 
     /**
-     * 
+     * Añade un registro en memoria y en la base de datos
+     * Tipo de registro: Asistencia
      * @param asistencia 1: Entrada, 2: Salida
      * @param fecha La fecha/tiempo de entrada o salida
+     * @param empleado El empleado que asiste
      */
     public boolean añadirRegistro(int asistencia, Date fecha, Empleado empleado){
         java.sql.Timestamp sqlDate = new java.sql.Timestamp(fecha.getTime());
@@ -92,6 +97,9 @@ public class TablaAsistencia {
         return true;
     }
 
+    /**
+     * Obtiene la tabla en un ArrayList
+     */
     public ArrayList<RegistroAsistencia> getTabla(){
         return registrosAsistencia;
     }
