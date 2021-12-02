@@ -14,12 +14,13 @@ CREATE TABLE Empleados
     apellido nvarchar(60) NULL,
     privilegios int NOT NULL,
     cargo nvarchar(30) NULL,
+    contraseña nvarchar(60) NULL,
 )
 
 CREATE TABLE Adelantos
 (
     num int IDENTITY(1, 1) NOT NULL primary key,
-    aceptado bit NOT NULL,
+    aceptado int NOT NULL,
     adelanto float NOT NULL,
     fecha date NOT NULL,
     justificación nvarchar(255) NOT NULL,
@@ -37,8 +38,8 @@ CREATE TABLE Pagos
 CREATE TABLE Asistencias
 (
     num int IDENTITY(1, 1) NOT NULL primary key,
-    asistencia bit NOT NULL,
-    fecha date NOT NULL,
+    asistencia int NOT NULL,
+    fecha datetime NOT NULL,
     idEmpleado int NOT NULL foreign key references Empleados(id)
 )
 
