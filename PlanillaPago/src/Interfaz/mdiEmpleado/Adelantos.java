@@ -4,6 +4,9 @@
  */
 package Interfaz.mdiEmpleado;
 
+import java.awt.Dimension;
+import static Interfaz.mdiEmpleado.EmpleadoC.centralE;
+
 /**
  *
  * @author Gimena Navarrete
@@ -26,15 +29,17 @@ public class Adelantos extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        tbAdelantoScroll = new javax.swing.JScrollPane();
+        tbAdelanto = new javax.swing.JTable();
+        soliAdelanto = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
         setVisible(true);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbAdelanto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
+        tbAdelanto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -53,10 +58,17 @@ public class Adelantos extends javax.swing.JInternalFrame {
                 return types [columnIndex];
             }
         });
-        jTable1.setMaximumSize(new java.awt.Dimension(75, 64));
-        jScrollPane1.setViewportView(jTable1);
+        tbAdelanto.setMaximumSize(new java.awt.Dimension(75, 64));
+        tbAdelantoScroll.setViewportView(tbAdelanto);
 
-        jButton1.setText("Solicitar Adelanto");
+        soliAdelanto.setBackground(new java.awt.Color(255, 102, 0));
+        soliAdelanto.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        soliAdelanto.setText("Solicitar Adelanto");
+        soliAdelanto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                soliAdelantoMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,30 +76,40 @@ public class Adelantos extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tbAdelantoScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(soliAdelanto)
                 .addGap(161, 161, 161))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tbAdelantoScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(soliAdelanto, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void soliAdelantoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_soliAdelantoMouseClicked
+        solicitarAdelanto sa = new solicitarAdelanto();
+        EmpleadoC.centralE.add(sa);
+        Dimension desktopSize = centralE.getSize();
+        Dimension FrameSize = sa.getSize();
+        sa.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+        sa.show();
+        sa.toFront();
+    }//GEN-LAST:event_soliAdelantoMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton soliAdelanto;
+    private javax.swing.JTable tbAdelanto;
+    private javax.swing.JScrollPane tbAdelantoScroll;
     // End of variables declaration//GEN-END:variables
 }

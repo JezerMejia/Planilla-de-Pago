@@ -28,30 +28,27 @@ public class sobreMi extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        nombreEmp = new javax.swing.JLabel();
+        idEmp = new javax.swing.JLabel();
+        cargoEmp = new javax.swing.JLabel();
+        fechaNacEmp = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
         setVisible(true);
 
-        jLabel1.setText("Nombre:");
+        nombreEmp.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        nombreEmp.setText("Nombre:");
 
-        jLabel2.setText("Cargo:");
+        idEmp.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        idEmp.setText("ID:");
 
-        jLabel3.setText("Fecha de nacimiento:");
+        cargoEmp.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        cargoEmp.setText("Cargo:");
 
-        jLabel4.setText("ID:");
-
-        jButton1.setText("Cerrar Sesion");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        fechaNacEmp.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        fechaNacEmp.setText("Fecha de nacimiento:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,45 +57,34 @@ public class sobreMi extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4))
-                .addContainerGap(261, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(30, 30, 30))
+                    .addComponent(cargoEmp)
+                    .addComponent(fechaNacEmp, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(nombreEmp)
+                    .addComponent(idEmp))
+                .addContainerGap(247, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(jLabel1)
+                .addComponent(nombreEmp)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(idEmp)
                 .addGap(27, 27, 27)
-                .addComponent(jLabel2)
+                .addComponent(cargoEmp)
                 .addGap(26, 26, 26)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(19, 19, 19))
+                .addComponent(fechaNacEmp)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel cargoEmp;
+    private javax.swing.JLabel fechaNacEmp;
+    private javax.swing.JLabel idEmp;
+    private javax.swing.JLabel nombreEmp;
     // End of variables declaration//GEN-END:variables
 }

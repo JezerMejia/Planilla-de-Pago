@@ -26,15 +26,17 @@ public class Asistencia extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        tbAsistenciaSrollEmp = new javax.swing.JScrollPane();
+        tbAsisteciaEmp = new javax.swing.JTable();
+        regisAsistencia = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
         setVisible(true);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbAsisteciaEmp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
+        tbAsisteciaEmp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -53,11 +55,13 @@ public class Asistencia extends javax.swing.JInternalFrame {
                 return types [columnIndex];
             }
         });
-        jTable1.setMaximumSize(new java.awt.Dimension(75, 64));
-        jTable1.setMinimumSize(new java.awt.Dimension(75, 64));
-        jScrollPane1.setViewportView(jTable1);
+        tbAsisteciaEmp.setMaximumSize(new java.awt.Dimension(75, 64));
+        tbAsisteciaEmp.setMinimumSize(new java.awt.Dimension(75, 64));
+        tbAsistenciaSrollEmp.setViewportView(tbAsisteciaEmp);
 
-        jButton1.setText("Registrar Asistencia");
+        regisAsistencia.setBackground(new java.awt.Color(255, 102, 0));
+        regisAsistencia.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        regisAsistencia.setText("Registrar Asistencia");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -67,19 +71,19 @@ public class Asistencia extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tbAsistenciaSrollEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(regisAsistencia)
                         .addGap(161, 161, 161))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(tbAsistenciaSrollEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(regisAsistencia)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -88,8 +92,8 @@ public class Asistencia extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton regisAsistencia;
+    private javax.swing.JTable tbAsisteciaEmp;
+    private javax.swing.JScrollPane tbAsistenciaSrollEmp;
     // End of variables declaration//GEN-END:variables
 }

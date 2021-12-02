@@ -117,7 +117,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         entrarB.setBackground(new java.awt.Color(247, 104, 8));
-        entrarB.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        entrarB.setFont(new java.awt.Font("Roboto", 1, 13)); // NOI18N
         entrarB.setText("Entrar");
         entrarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

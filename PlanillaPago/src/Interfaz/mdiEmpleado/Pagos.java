@@ -26,16 +26,18 @@ public class Pagos extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbPagosScrollEmp = new javax.swing.JScrollPane();
+        tbPagosEmp = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
         setVisible(true);
 
-        jScrollPane1.setMinimumSize(new java.awt.Dimension(75, 64));
+        tbPagosScrollEmp.setMinimumSize(new java.awt.Dimension(75, 64));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbPagosEmp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
+        tbPagosEmp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -54,9 +56,9 @@ public class Pagos extends javax.swing.JInternalFrame {
                 return types [columnIndex];
             }
         });
-        jTable1.setMaximumSize(new java.awt.Dimension(75, 64));
-        jTable1.setPreferredSize(new java.awt.Dimension(75, 64));
-        jScrollPane1.setViewportView(jTable1);
+        tbPagosEmp.setMaximumSize(new java.awt.Dimension(75, 64));
+        tbPagosEmp.setPreferredSize(new java.awt.Dimension(75, 64));
+        tbPagosScrollEmp.setViewportView(tbPagosEmp);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,14 +66,14 @@ public class Pagos extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tbPagosScrollEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tbPagosScrollEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -80,7 +82,7 @@ public class Pagos extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbPagosEmp;
+    private javax.swing.JScrollPane tbPagosScrollEmp;
     // End of variables declaration//GEN-END:variables
 }

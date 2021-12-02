@@ -4,6 +4,9 @@
  */
 package Interfaz.mdiAdministrador;
 
+import static Interfaz.mdiAdministrador.AdministradorC.centralA;
+import java.awt.Dimension;
+
 /**
  *
  * @author Gimena Navarrete
@@ -26,18 +29,21 @@ public class Trabajadores extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        tbEmpleadoTScroll = new javax.swing.JScrollPane();
+        tbEmpleados = new javax.swing.JTable();
+        busqId = new javax.swing.JLabel();
+        busqIdTF = new javax.swing.JTextField();
+        buscar = new javax.swing.JButton();
+        crearEmpleado = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
+        setTitle("Empleados");
         setVisible(true);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbEmpleados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
+        tbEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -48,16 +54,23 @@ public class Trabajadores extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tbEmpleadoTScroll.setViewportView(tbEmpleados);
 
-        jLabel1.setText("Buscar por ID:");
+        busqId.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        busqId.setText("Buscar por ID:");
 
-        jButton1.setText("Buscar");
+        busqIdTF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
 
-        jButton2.setText("Crear Empleado");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buscar.setBackground(new java.awt.Color(255, 102, 0));
+        buscar.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        buscar.setText("Buscar");
+
+        crearEmpleado.setBackground(new java.awt.Color(255, 102, 0));
+        crearEmpleado.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        crearEmpleado.setText("Crear Empleado");
+        crearEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                crearEmpleadoActionPerformed(evt);
             }
         });
 
@@ -69,46 +82,50 @@ public class Trabajadores extends javax.swing.JInternalFrame {
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(busqId)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(busqIdTF, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)
+                        .addComponent(buscar)
                         .addGap(81, 81, 81)
-                        .addComponent(jButton2))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(crearEmpleado))
+                    .addComponent(tbEmpleadoTScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addContainerGap(43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(busqId)
+                    .addComponent(busqIdTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscar)
+                    .addComponent(crearEmpleado))
                 .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tbEmpleadoTScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void crearEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearEmpleadoActionPerformed
         crearEmpleado ce = new crearEmpleado();
         AdministradorC.centralA.add(ce);
+        Dimension desktopSize = centralA.getSize();
+        Dimension FrameSize = ce.getSize();
+        ce.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+        ce.show();
         ce.toFront();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_crearEmpleadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton buscar;
+    private javax.swing.JLabel busqId;
+    private javax.swing.JTextField busqIdTF;
+    private javax.swing.JButton crearEmpleado;
+    private javax.swing.JScrollPane tbEmpleadoTScroll;
+    private javax.swing.JTable tbEmpleados;
     // End of variables declaration//GEN-END:variables
 }

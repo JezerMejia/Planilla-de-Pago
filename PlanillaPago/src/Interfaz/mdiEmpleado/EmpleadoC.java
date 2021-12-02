@@ -47,80 +47,98 @@ public class EmpleadoC extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        central = new javax.swing.JDesktopPane();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        menuSalir = new javax.swing.JMenu();
+        centralE = new javax.swing.JDesktopPane();
+        logoEmp = new javax.swing.JLabel();
+        barraMEmpleado = new javax.swing.JMenuBar();
+        asistenciaEmp = new javax.swing.JMenu();
+        adelantosEmp = new javax.swing.JMenu();
+        pagosEmp = new javax.swing.JMenu();
+        sobreMiEmp = new javax.swing.JMenu();
+        salirEmp = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Administrador");
 
-        central.setBackground(new java.awt.Color(255, 255, 255));
+        centralE.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout centralLayout = new javax.swing.GroupLayout(central);
-        central.setLayout(centralLayout);
-        centralLayout.setHorizontalGroup(
-            centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 982, Short.MAX_VALUE)
+        logoEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/logo3.png"))); // NOI18N
+
+        centralE.setLayer(logoEmp, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout centralELayout = new javax.swing.GroupLayout(centralE);
+        centralE.setLayout(centralELayout);
+        centralELayout.setHorizontalGroup(
+            centralELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, centralELayout.createSequentialGroup()
+                .addContainerGap(346, Short.MAX_VALUE)
+                .addComponent(logoEmp)
+                .addGap(288, 288, 288))
         );
-        centralLayout.setVerticalGroup(
-            centralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 497, Short.MAX_VALUE)
+        centralELayout.setVerticalGroup(
+            centralELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(centralELayout.createSequentialGroup()
+                .addGap(144, 144, 144)
+                .addComponent(logoEmp)
+                .addContainerGap(173, Short.MAX_VALUE))
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
-        jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
-        jMenuBar1.setMaximumSize(new java.awt.Dimension(3000000, 32769));
+        barraMEmpleado.setBackground(new java.awt.Color(255, 169, 133));
+        barraMEmpleado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
+        barraMEmpleado.setForeground(new java.awt.Color(255, 102, 0));
+        barraMEmpleado.setMaximumSize(new java.awt.Dimension(3000000, 32769));
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/editar.png"))); // NOI18N
-        jMenu1.setText("Asistencia");
-        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+        asistenciaEmp.setBackground(new java.awt.Color(255, 102, 0));
+        asistenciaEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/editar.png"))); // NOI18N
+        asistenciaEmp.setText("Asistencia");
+        asistenciaEmp.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        asistenciaEmp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu1MouseClicked(evt);
+                asistenciaEmpMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu1);
+        barraMEmpleado.add(asistenciaEmp);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/completar.png"))); // NOI18N
-        jMenu2.setText("Adelantos");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+        adelantosEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/completar.png"))); // NOI18N
+        adelantosEmp.setText("Adelantos");
+        adelantosEmp.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        adelantosEmp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
+                adelantosEmpMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jMenu2MouseEntered(evt);
+                adelantosEmpMouseEntered(evt);
             }
         });
-        jMenuBar1.add(jMenu2);
+        barraMEmpleado.add(adelantosEmp);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/metodo-de-pago (1).png"))); // NOI18N
-        jMenu3.setText("Pagos");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+        pagosEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/metodo-de-pago (1).png"))); // NOI18N
+        pagosEmp.setText("Pagos");
+        pagosEmp.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        pagosEmp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
+                pagosEmpMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu3);
+        barraMEmpleado.add(pagosEmp);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/usuario (1) (1).png"))); // NOI18N
-        jMenu4.setText("Sobre mi");
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+        sobreMiEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/usuario (1) (1).png"))); // NOI18N
+        sobreMiEmp.setText("Sobre mi");
+        sobreMiEmp.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        sobreMiEmp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
+                sobreMiEmpMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu4);
+        barraMEmpleado.add(sobreMiEmp);
 
-        menuSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/cerrar-sesion.png"))); // NOI18N
-        menuSalir.setText("Salir");
-        menuSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+        salirEmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/cerrar-sesion.png"))); // NOI18N
+        salirEmp.setText("Salir");
+        salirEmp.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        salirEmp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuSalirMouseClicked(evt);
+                salirEmpMouseClicked(evt);
             }
         });
 
@@ -135,7 +153,7 @@ public class EmpleadoC extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        menuSalir.add(jMenuItem1);
+        salirEmp.add(jMenuItem1);
 
         jMenuItem2.setText("Salir del programa");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -143,11 +161,11 @@ public class EmpleadoC extends javax.swing.JFrame {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        menuSalir.add(jMenuItem2);
+        salirEmp.add(jMenuItem2);
 
-        jMenuBar1.add(menuSalir);
+        barraMEmpleado.add(salirEmp);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(barraMEmpleado);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,70 +173,70 @@ public class EmpleadoC extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(central, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(centralE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(central)
+            .addComponent(centralE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+    private void asistenciaEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_asistenciaEmpMouseClicked
         Asistencia as = new Asistencia();
         
-        central.add(as);
+        centralE.add(as);
         Dimension desktopSize = centralA.getSize();
         Dimension FrameSize = as.getSize();
         as.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
         as.show();
         as.toFront();
-    }//GEN-LAST:event_jMenu1MouseClicked
+    }//GEN-LAST:event_asistenciaEmpMouseClicked
 
-    private void jMenu2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseEntered
+    private void adelantosEmpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adelantosEmpMouseEntered
         // Invalido
-    }//GEN-LAST:event_jMenu2MouseEntered
+    }//GEN-LAST:event_adelantosEmpMouseEntered
 
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+    private void adelantosEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adelantosEmpMouseClicked
         Adelantos ad = new Adelantos();
         
-        central.add(ad);
+        centralE.add(ad);
         Dimension desktopSize = centralA.getSize();
         Dimension FrameSize = ad.getSize();
         ad.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
         ad.show();
         ad.toFront();
-    }//GEN-LAST:event_jMenu2MouseClicked
+    }//GEN-LAST:event_adelantosEmpMouseClicked
 
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+    private void pagosEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pagosEmpMouseClicked
         Pagos pa = new Pagos();
-        central.add(pa);
+        centralE.add(pa);
         Dimension desktopSize = centralA.getSize();
         Dimension FrameSize = pa.getSize();
         pa.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
         pa.show();
         pa.toFront();
-    }//GEN-LAST:event_jMenu3MouseClicked
+    }//GEN-LAST:event_pagosEmpMouseClicked
 
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+    private void sobreMiEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sobreMiEmpMouseClicked
         sobreMi sm = new sobreMi();
         
-        central.add(sm);
+        centralE.add(sm);
         Dimension desktopSize = centralA.getSize();
         Dimension FrameSize = sm.getSize();
         sm.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
         sm.show();
         sm.toFront();
-    }//GEN-LAST:event_jMenu4MouseClicked
+    }//GEN-LAST:event_sobreMiEmpMouseClicked
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void menuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSalirMouseClicked
+    private void salirEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirEmpMouseClicked
        //invalido
-    }//GEN-LAST:event_menuSalirMouseClicked
+    }//GEN-LAST:event_salirEmpMouseClicked
 
     private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
         
@@ -271,14 +289,15 @@ public class EmpleadoC extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane central;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu adelantosEmp;
+    private javax.swing.JMenu asistenciaEmp;
+    private javax.swing.JMenuBar barraMEmpleado;
+    public static javax.swing.JDesktopPane centralE;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenu menuSalir;
+    private javax.swing.JLabel logoEmp;
+    private javax.swing.JMenu pagosEmp;
+    private javax.swing.JMenu salirEmp;
+    private javax.swing.JMenu sobreMiEmp;
     // End of variables declaration//GEN-END:variables
 }

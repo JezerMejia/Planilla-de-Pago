@@ -190,7 +190,7 @@
                   <Color blue="8" green="68" red="f7" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="sansserif" size="13" style="1"/>
+                  <Font name="Roboto" size="13" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Entrar"/>
               </Properties>

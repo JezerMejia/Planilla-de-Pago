@@ -26,25 +26,33 @@ public class sobreMi extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        nombreS = new javax.swing.JLabel();
+        apellidoS = new javax.swing.JLabel();
+        idS = new javax.swing.JLabel();
+        fechanNacS = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
+        setTitle("Yo");
         setVisible(true);
 
-        jLabel1.setText("Nombre");
+        nombreS.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        nombreS.setText("Nombre: ");
 
-        jLabel2.setText("Apellido");
+        apellidoS.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        apellidoS.setText("Apellido: ");
 
-        jLabel3.setText("ID");
+        idS.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        idS.setText("ID: ");
 
-        jLabel4.setText("Fecha de nacimiento");
+        fechanNacS.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        fechanNacS.setText("Fecha de nacimiento: ");
+
+        jSeparator1.setForeground(new java.awt.Color(255, 102, 0));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -55,33 +63,37 @@ public class sobreMi extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSeparator1)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(fechanNacS)
+                            .addComponent(idS)
+                            .addComponent(apellidoS)
+                            .addComponent(nombreS)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jLabel1)
+                .addComponent(nombreS)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(apellidoS)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addComponent(idS)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(fechanNacS)
                 .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -89,12 +101,12 @@ public class sobreMi extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel apellidoS;
+    private javax.swing.JLabel fechanNacS;
+    private javax.swing.JLabel idS;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel nombreS;
     // End of variables declaration//GEN-END:variables
 }
