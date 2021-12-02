@@ -41,17 +41,21 @@ public class Empleado {
     }
 
     /**
-     * Se registra la asistencia con el input
-     * del empleado
+     * Se registra la debida asistencia del empleado
+     * @param empleado El empleado a registrar su asistencia
      */
-    public void registrarAsistencia(){
+    public boolean registrarAsistencia(){
+        return this.planillaPago.registrarAsistencia(this);
     }
 
     /**
-     * Se obtiene el input y se solicita el adelanto
-     * con la Planilla de Pago
+     * Solicita el adelanto de un empleado
+     * @param empleado El empleado que solicita el adelanto
+     * @param adelanto El monto
+     * @param justificacion La justificación de tal adelanto
      */
-    public void solicitarAdelanto(){
+    public boolean solicitarAdelanto(Float adelanto, String justificacion){
+        return this.planillaPago.solicitarAdelanto(this, adelanto, justificacion);
     }
 
     /**
@@ -157,7 +161,8 @@ public class Empleado {
             "id: " + this.id + ", " +
             "nombre: \"" + this.nombre + "\", " +
             "apellido: \"" + this.apellido + "\", " +
-            "cargo: \"" + this.cargo + "\"" +
+            "cargo: \"" + this.cargo + "\", " +
+            "privilegios: " + this.privilegios +
             " }";
     }
 }//end Empleado

@@ -129,7 +129,7 @@ public class PlanillaPago {
 
     /**
      * Se registra la debida asistencia del empleado
-     * @param empleado El epleado a registrar su asistencia
+     * @param empleado El empleado a registrar su asistencia
      */
     public boolean registrarAsistencia(Empleado empleado){
         Date today = Calendar.getInstance().getTime();
@@ -154,15 +154,40 @@ public class PlanillaPago {
     }
 
     /**
-     * 
-     * @param empleado
-     * @param adelanto
-     * @param justificacion
+     * Solicita el adelanto de un empleado
+     * @param empleado El empleado que solicita el adelanto
+     * @param adelanto El monto
+     * @param justificacion La justificación de tal adelanto
      */
     public boolean solicitarAdelanto(Empleado empleado, Float adelanto, String justificacion){
         Date today = Calendar.getInstance().getTime();
         if (adelanto <= 0) return false;
         return this.tablaAdelantos.añadirRegistro(adelanto, today, justificacion, empleado);
+    }
+
+    /**
+     * Se crea un empleado con privilegios 0
+     * @param id El ID del empleado
+     * @param nombre El nombre
+     * @param apellido Su apellido
+     * @param cargo Su cargo en la empresa
+     * @param contraseña Su contraseña de accesso
+     */
+    public boolean crearEmpleado(Integer id, String nombre, String apellido, String cargo, String contraseña) {
+        return this.tablaEmpleados.añadirEmpleado(id, nombre, apellido, cargo, contraseña);
+    }
+
+    /**
+     * Se edita el empleado según su ID
+     * @param id El ID del empleado
+     * @param nombre El nombre
+     * @param apellido Su apellido
+     * @param cargo Su cargo en la empresa
+     * @param contraseña Su contraseña de accesso
+     * @param privilegios Sus privilegios. 0: empleado, 1: administrador
+     */
+    public boolean editarEmpleado(Integer id, String nombre, String apellido, String cargo, String contraseña, Integer privilegios) {
+        return this.tablaEmpleados.editarEmpleado(id, nombre, apellido, cargo, contraseña, privilegios);
     }
 
     public static void main(String[] argv) {
@@ -175,6 +200,5 @@ public class PlanillaPago {
         planilla.realizarPago(empleado);
         
         //planilla.registrarAsistencia(empleado);
-
     }
 }//end PlanillaPago
