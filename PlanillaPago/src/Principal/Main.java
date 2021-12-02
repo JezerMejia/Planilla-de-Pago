@@ -5,6 +5,8 @@
  */
 package Principal;
 
+import Interfaz.Login;
+import Planilla.PlanillaPago;
 
 /**
  *
@@ -16,8 +18,11 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        PlanillaPago planilla = new PlanillaPago();
 
-        
+        Login login = new Login();
+        login.setPlanillaPago(planilla);
+        login.setVisible(true);
     }
     
 }

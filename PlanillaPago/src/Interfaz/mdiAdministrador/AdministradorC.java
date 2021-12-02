@@ -6,6 +6,8 @@ package Interfaz.mdiAdministrador;
 
 import Interfaz.Login;
 import Interfaz.mdiEmpleado.ImagenFondo;
+import Usuarios.Administrador;
+
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
@@ -20,6 +22,7 @@ import javax.swing.SwingConstants;
 public class AdministradorC extends javax.swing.JFrame {
 
    //public InputStream foto1 = this.getClass().getResourceAsStream("/Iconos/fondoCentral.png");
+    private Administrador administrador;
     
     public AdministradorC() {
         initComponents();
@@ -30,6 +33,14 @@ public class AdministradorC extends javax.swing.JFrame {
         logo.setHorizontalAlignment(SwingConstants.CENTER);
         logo.setVerticalAlignment(SwingConstants.CENTER);
         
+    }
+
+    public Administrador getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(Administrador administrador) {
+        this.administrador = administrador;
     }
     
     /*public void cargarImagen(javax.swing.JDesktopPane jDesk, InputStream fileImage){

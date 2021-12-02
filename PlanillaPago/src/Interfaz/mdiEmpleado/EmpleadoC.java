@@ -6,6 +6,8 @@ package Interfaz.mdiEmpleado;
 
 
 import Interfaz.Login;
+import Usuarios.Empleado;
+
 import static Interfaz.mdiAdministrador.AdministradorC.centralA;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
@@ -15,7 +17,7 @@ import javax.swing.ImageIcon;
 public class EmpleadoC extends javax.swing.JFrame {
     
     //public InputStream foto1 = this.getClass().getResourceAsStream("/Iconos/fondoCentral.png");
-                
+    private Empleado empleado;
     
     public EmpleadoC() {
         initComponents();
@@ -38,6 +40,14 @@ public class EmpleadoC extends javax.swing.JFrame {
     }
     */
     
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
