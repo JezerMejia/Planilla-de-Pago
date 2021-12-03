@@ -16,7 +16,8 @@ public class sobreMi extends javax.swing.JInternalFrame {
     /**
      * Creates new form sobreMi
      */
-    public sobreMi() {
+    public sobreMi(Administrador administrador) {
+        this.administrador = administrador;
         initComponents();
     }
 

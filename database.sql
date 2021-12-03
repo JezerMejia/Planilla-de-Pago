@@ -44,3 +44,11 @@ CREATE TABLE Asistencias
 )
 
 GO
+
+INSERT INTO Empleados(id, nombre, apellido, privilegios, cargo, contraseña)
+VALUES(789, "Luis", "Jiménez", 1, "Gerente", "123")
+GO
+
+INSERT INTO Empleados(id, nombre, apellido, privilegios, cargo, contraseña)
+VALUES(234, "Jhanna", "Rizo", 1, "Gerente", "123")
+GO

@@ -41,7 +41,7 @@ public class Solicitudes extends javax.swing.JInternalFrame {
         PlanillaPago planilla = this.administrador.getPlanillaPago();
         ArrayList<RegistroAdelanto> array = planilla.getTablaAdelantos().getTabla();
 
-        String[] columnas = { "Num", "Monto", "Estado", "Justificación" ,"Fecha" };
+        String[] columnas = { "Num", "Monto", "Estado", "Justificación" ,"Fecha", "idEmpleado" };
         DefaultTableModel dtm = new DefaultTableModel(columnas, 0) {
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -59,6 +59,7 @@ public class Solicitudes extends javax.swing.JInternalFrame {
                 estado,
                 registro.getJustificacion(),
                 registro.getFecha(),
+                registro.getEmpleado().getId(),
             };
             dtm.addRow(datos);
         }

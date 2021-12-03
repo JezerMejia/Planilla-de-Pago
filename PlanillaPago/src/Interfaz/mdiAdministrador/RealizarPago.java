@@ -4,11 +4,13 @@
  */
 package Interfaz.mdiAdministrador;
 
+import static Interfaz.mdiAdministrador.AdministradorC.centralA;
 import Planilla.PlanillaPago;
 import Registros.RegistroPago;
 import javax.swing.table.DefaultTableModel;
 
 import Usuarios.Administrador;
+import java.awt.Dimension;
 import java.util.ArrayList;
 
 /**
@@ -39,7 +41,7 @@ public class RealizarPago extends javax.swing.JInternalFrame {
         PlanillaPago planilla = this.administrador.getPlanillaPago();
         ArrayList<RegistroPago> array = planilla.getTablaPagos().getTabla();
 
-        String[] columnas = { "Num", "Monto", "Fecha" };
+        String[] columnas = { "Num", "Monto", "Fecha", "idEmpleado" };
         DefaultTableModel dtm = new DefaultTableModel(columnas, 0) {
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -50,6 +52,7 @@ public class RealizarPago extends javax.swing.JInternalFrame {
                 registro.getNum(),
                 registro.getMonto(),
                 registro.getFecha(),
+                registro.getEmpleado().getId(),
             };
             dtm.addRow(datos);
         }
@@ -118,7 +121,13 @@ public class RealizarPago extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void realizarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarPagoActionPerformed
-        // TODO add your handling code here:
+        Pagar adm = new Pagar(this.administrador, this);
+        AdministradorC.centralA.add(adm);
+        Dimension desktopSize = centralA.getSize();
+        Dimension FrameSize = adm.getSize();
+        adm.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+        adm.show();
+        adm.toFront();
     }//GEN-LAST:event_realizarPagoActionPerformed
 
 
@@ -127,4 +136,11 @@ public class RealizarPago extends javax.swing.JInternalFrame {
     private javax.swing.JTable tbPago;
     private javax.swing.JScrollPane tbPagoScroll;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the tbPago
+     */
+    public javax.swing.JTable getTbPago() {
+        return tbPago;
+    }
 }
