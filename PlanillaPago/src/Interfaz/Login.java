@@ -243,7 +243,7 @@ public class Login extends javax.swing.JFrame {
 
         if (empleado.getPrivilegios() == 0) {
             JOptionPane.showMessageDialog(null,"Bienvenido empleado: "+empleado.getNombre());
-            EmpleadoC cen = new EmpleadoC();
+            EmpleadoC cen = new EmpleadoC(this);
             cen.setEmpleado(empleado);
             cen.setVisible(true);
             this.dispose();

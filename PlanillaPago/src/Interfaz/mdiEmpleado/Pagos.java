@@ -4,17 +4,59 @@
  */
 package Interfaz.mdiEmpleado;
 
+import java.util.ArrayList;
+
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import Planilla.PlanillaPago;
+import Registros.RegistroPago;
+import Usuarios.Empleado;
+
 /**
  *
  * @author Gimena Navarrete
  */
 public class Pagos extends javax.swing.JInternalFrame {
 
+    private Empleado empleado;
+
     /**
      * Creates new form Pagos
      */
-    public Pagos() {
+    public Pagos(Empleado empleado) {
+        this.empleado = empleado;
         initComponents();
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    public DefaultTableModel arrayToTable() {
+        PlanillaPago planilla = this.empleado.getPlanillaPago();
+        ArrayList<RegistroPago> array = planilla.getTablaPagos().getTabla();
+
+        String[] columnas = { "Num", "Monto", "Fecha" };
+        DefaultTableModel dtm = new DefaultTableModel(columnas, 0) {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        for (RegistroPago registro : array) {
+            if (registro.getEmpleado().getId() != this.empleado.getId()) continue;
+            Object[] datos = {
+                registro.getNum(),
+                registro.getMonto(),
+                registro.getFecha(),
+            };
+            dtm.addRow(datos);
+        }
+        return dtm;
     }
 
     /**
@@ -32,45 +74,14 @@ public class Pagos extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
-        setTitle("Pagos");
+        setResizable(true);
         setVisible(true);
 
         tbPagosScrollEmp.setMinimumSize(new java.awt.Dimension(75, 64));
 
         tbPagosEmp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
         tbPagosEmp.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        tbPagosEmp.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Num", "Monto", "Fecha"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        tbPagosEmp.setModel(this.arrayToTable());
         tbPagosEmp.setMaximumSize(new java.awt.Dimension(75, 64));
         tbPagosEmp.setPreferredSize(new java.awt.Dimension(75, 64));
         tbPagosScrollEmp.setViewportView(tbPagosEmp);
@@ -79,17 +90,17 @@ public class Pagos extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tbPagosScrollEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tbPagosScrollEmp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tbPagosScrollEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addComponent(tbPagosScrollEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();

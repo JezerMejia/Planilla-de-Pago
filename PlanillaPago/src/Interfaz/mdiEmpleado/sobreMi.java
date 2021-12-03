@@ -6,16 +6,18 @@ package Interfaz.mdiEmpleado;
 
 import Interfaz.Login;
 import Usuarios.Empleado;
+
 /**
  *
  * @author Gimena Navarrete
  */
 public class sobreMi extends javax.swing.JInternalFrame {
-        private Empleado empleado;
+    private Empleado empleado;
     /**
      * Creates new form Yo
      */
-    public sobreMi() {
+    public sobreMi(Empleado empleado) {
+        this.empleado = empleado;
         initComponents();
     }
     
@@ -24,6 +26,14 @@ public class sobreMi extends javax.swing.JInternalFrame {
     }
 
     public void setAdministrador(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
     }
 
@@ -39,11 +49,9 @@ public class sobreMi extends javax.swing.JInternalFrame {
         nombreEmp = new javax.swing.JLabel();
         idEmp = new javax.swing.JLabel();
         cargoEmp = new javax.swing.JLabel();
-        apellidoEmp = new javax.swing.JLabel();
-        nombreTF = new javax.swing.JTextField();
-        apellidoTF = new javax.swing.JTextField();
-        idTF = new javax.swing.JTextField();
-        cargoTF = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
@@ -52,44 +60,22 @@ public class sobreMi extends javax.swing.JInternalFrame {
         setVisible(true);
 
         nombreEmp.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        nombreEmp.setText("Nombre:");
+        nombreEmp.setText(this.empleado.getNombre() + " " + this.empleado.getApellido());
 
         idEmp.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        idEmp.setText("ID:");
+        idEmp.setText("" + this.empleado.getId());
 
         cargoEmp.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        cargoEmp.setText("Cargo:");
+        cargoEmp.setText(this.empleado.getCargo());
 
-        apellidoEmp.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        apellidoEmp.setText("Apellido");
+        jLabel1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jLabel1.setText("Nombre:");
 
-        nombreTF.setEditable(false);
-        nombreTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreTFActionPerformed(evt);
-            }
-        });
+        jLabel2.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jLabel2.setText("ID:");
 
-        apellidoTF.setEditable(false);
-        apellidoTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                apellidoTFActionPerformed(evt);
-            }
-        });
-
-        idTF.setEditable(false);
-        idTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idTFActionPerformed(evt);
-            }
-        });
-
-        cargoTF.setEditable(false);
-        cargoTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cargoTFActionPerformed(evt);
-            }
-        });
+        jLabel3.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
+        jLabel3.setText("Cargo:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,45 +83,33 @@ public class sobreMi extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(59, 59, 59)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cargoEmp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cargoTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(idEmp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(idTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nombreEmp)
-                            .addComponent(apellidoEmp))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(nombreTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(apellidoTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cargoEmp)
+                    .addComponent(idEmp)
+                    .addComponent(nombreEmp))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nombreEmp)
-                    .addComponent(nombreTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(apellidoEmp)
-                    .addComponent(apellidoTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nombreEmp)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idEmp)
-                    .addComponent(idTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(cargoEmp)
-                    .addComponent(cargoTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                    .addComponent(jLabel3))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
@@ -149,22 +123,15 @@ public class sobreMi extends javax.swing.JInternalFrame {
          apellidoTF.setText(this.empleado.getApellido());
     }//GEN-LAST:event_apellidoTFActionPerformed
 
-    private void idTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTFActionPerformed
-         idTF.setText(Integer.toString(this.empleado.getId()));
-    }//GEN-LAST:event_idTFActionPerformed
-
-    private void cargoTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargoTFActionPerformed
-         cargoTF.setText(this.empleado.getCargo());
-    }//GEN-LAST:event_cargoTFActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel apellidoEmp;
     private javax.swing.JTextField apellidoTF;
     private javax.swing.JLabel cargoEmp;
-    private javax.swing.JTextField cargoTF;
     private javax.swing.JLabel idEmp;
-    private javax.swing.JTextField idTF;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel nombreEmp;
     private javax.swing.JTextField nombreTF;
     // End of variables declaration//GEN-END:variables

@@ -18,8 +18,12 @@ public class EmpleadoC extends javax.swing.JFrame {
     
     //public InputStream foto1 = this.getClass().getResourceAsStream("/Iconos/fondoCentral.png");
     private Empleado empleado;
+    private Login login;
+    private Planilla.PlanillaPago planillaPago;
     
-    public EmpleadoC() {
+    public EmpleadoC(Login login) {
+        this.login = login;
+        this.planillaPago = login.getPlanillaPago();
         initComponents();
         this.setLocationRelativeTo(null);
      // cargarImagen(central,foto1);
@@ -196,7 +200,7 @@ public class EmpleadoC extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void asistenciaEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_asistenciaEmpMouseClicked
-        Asistencia as = new Asistencia();
+        Asistencia as = new Asistencia(this.empleado);
         
         centralE.add(as);
         Dimension desktopSize = centralA.getSize();
@@ -211,7 +215,7 @@ public class EmpleadoC extends javax.swing.JFrame {
     }//GEN-LAST:event_adelantosEmpMouseEntered
 
     private void adelantosEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adelantosEmpMouseClicked
-        Adelantos ad = new Adelantos();
+        Adelantos ad = new Adelantos(this.empleado);
         
         centralE.add(ad);
         Dimension desktopSize = centralA.getSize();
@@ -222,7 +226,7 @@ public class EmpleadoC extends javax.swing.JFrame {
     }//GEN-LAST:event_adelantosEmpMouseClicked
 
     private void pagosEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pagosEmpMouseClicked
-        Pagos pa = new Pagos();
+        Pagos pa = new Pagos(this.empleado);
         centralE.add(pa);
         Dimension desktopSize = centralA.getSize();
         Dimension FrameSize = pa.getSize();
@@ -232,7 +236,7 @@ public class EmpleadoC extends javax.swing.JFrame {
     }//GEN-LAST:event_pagosEmpMouseClicked
 
     private void sobreMiEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sobreMiEmpMouseClicked
-        sobreMi sm = new sobreMi();
+        sobreMi sm = new sobreMi(this.empleado);
         
         centralE.add(sm);
         Dimension desktopSize = centralA.getSize();
@@ -255,10 +259,8 @@ public class EmpleadoC extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1MouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Login lo = new Login();
-        
-        lo.setVisible(true);
-        dispose();
+        this.dispose();
+        this.login.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
@@ -294,7 +296,7 @@ public class EmpleadoC extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EmpleadoC().setVisible(true);
+                new EmpleadoC(null).setVisible(true);
                
             }
         });
