@@ -52,7 +52,7 @@ public class sobreMi extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
-        setTitle("Yo");
+        setTitle("Sobre mi");
         setVisible(true);
 
         nombreS.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
