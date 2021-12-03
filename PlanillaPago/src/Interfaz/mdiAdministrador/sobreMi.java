@@ -40,10 +40,14 @@ public class sobreMi extends javax.swing.JInternalFrame {
         nombreS = new javax.swing.JLabel();
         apellidoS = new javax.swing.JLabel();
         idS = new javax.swing.JLabel();
-        fechanNacS = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        nombreAdmin = new javax.swing.JTextField();
+        apellidoAdmin = new javax.swing.JTextField();
+        idAdmin = new javax.swing.JTextField();
+        cargo = new javax.swing.JLabel();
+        cargoAdmin = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
@@ -60,15 +64,43 @@ public class sobreMi extends javax.swing.JInternalFrame {
         idS.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         idS.setText("ID: ");
 
-        fechanNacS.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        fechanNacS.setText("Fecha de nacimiento: ");
-
         jSeparator1.setForeground(new java.awt.Color(255, 102, 0));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Aqui podira ir algo extra");
+        jTextArea1.setText("esto se puede eliminar");
         jScrollPane1.setViewportView(jTextArea1);
+
+        nombreAdmin.setEditable(false);
+        nombreAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreAdminActionPerformed(evt);
+            }
+        });
+
+        apellidoAdmin.setEditable(false);
+        apellidoAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apellidoAdminActionPerformed(evt);
+            }
+        });
+
+        idAdmin.setEditable(false);
+        idAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idAdminActionPerformed(evt);
+            }
+        });
+
+        cargo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        cargo.setText("Cargo");
+
+        cargoAdmin.setEditable(false);
+        cargoAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargoAdminActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,44 +112,78 @@ public class sobreMi extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fechanNacS)
-                            .addComponent(idS)
+                            .addComponent(nombreS)
                             .addComponent(apellidoS)
-                            .addComponent(nombreS)))
+                            .addComponent(idS)
+                            .addComponent(cargo))
+                        .addGap(77, 77, 77)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nombreAdmin)
+                            .addComponent(apellidoAdmin)
+                            .addComponent(idAdmin)
+                            .addComponent(cargoAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addGap(34, 34, 34)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(nombreS)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nombreS)
+                    .addComponent(nombreAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(apellidoS)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(apellidoS)
+                    .addComponent(apellidoAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(idS)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idS)
+                    .addComponent(idAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(fechanNacS)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cargo)
+                    .addComponent(cargoAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void nombreAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreAdminActionPerformed
+        nombreAdmin.setText(this.administrador.getNombre()); 
+    }//GEN-LAST:event_nombreAdminActionPerformed
+
+    private void apellidoAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidoAdminActionPerformed
+        apellidoAdmin.setText(this.administrador.getApellido());
+    }//GEN-LAST:event_apellidoAdminActionPerformed
+
+    private void idAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idAdminActionPerformed
+        idAdmin.setText(Integer.toString(this.administrador.getId()));
+    }//GEN-LAST:event_idAdminActionPerformed
+
+    private void cargoAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargoAdminActionPerformed
+        cargoAdmin.setText(this.administrador.getCargo());
+    }//GEN-LAST:event_cargoAdminActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField apellidoAdmin;
     private javax.swing.JLabel apellidoS;
-    private javax.swing.JLabel fechanNacS;
+    private javax.swing.JLabel cargo;
+    private javax.swing.JTextField cargoAdmin;
+    private javax.swing.JTextField idAdmin;
     private javax.swing.JLabel idS;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField nombreAdmin;
     private javax.swing.JLabel nombreS;
     // End of variables declaration//GEN-END:variables
 }

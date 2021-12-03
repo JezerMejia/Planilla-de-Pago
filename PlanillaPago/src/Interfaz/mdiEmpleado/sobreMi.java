@@ -32,6 +32,7 @@ public class sobreMi extends javax.swing.JInternalFrame {
         idEmp = new javax.swing.JLabel();
         cargoEmp = new javax.swing.JLabel();
         fechaNacEmp = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
@@ -50,6 +51,13 @@ public class sobreMi extends javax.swing.JInternalFrame {
         fechaNacEmp.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         fechaNacEmp.setText("Fecha de nacimiento:");
 
+        jTextField1.setEditable(false);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -61,30 +69,39 @@ public class sobreMi extends javax.swing.JInternalFrame {
                     .addComponent(fechaNacEmp, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(nombreEmp)
                     .addComponent(idEmp))
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(nombreEmp)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nombreEmp)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(idEmp)
                 .addGap(27, 27, 27)
                 .addComponent(cargoEmp)
                 .addGap(26, 26, 26)
                 .addComponent(fechaNacEmp)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cargoEmp;
     private javax.swing.JLabel fechaNacEmp;
     private javax.swing.JLabel idEmp;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel nombreEmp;
     // End of variables declaration//GEN-END:variables
 }
