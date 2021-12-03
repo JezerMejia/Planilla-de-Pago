@@ -5,9 +5,15 @@
 package Interfaz.mdiAdministrador;
 
 import static Interfaz.mdiAdministrador.AdministradorC.centralA;
+import Planilla.PlanillaPago;
+import Registros.RegistroAdelanto;
 import java.awt.Dimension;
 
 import Usuarios.Administrador;
+import Usuarios.Empleado;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,7 +26,8 @@ public class Trabajadores extends javax.swing.JInternalFrame {
     /**
      * Creates new form Empleados
      */
-    public Trabajadores() {
+    public Trabajadores(Administrador administrador) {
+        this.administrador = administrador;
         initComponents();
     }
 
@@ -32,6 +39,34 @@ public class Trabajadores extends javax.swing.JInternalFrame {
 		this.administrador = administrador;
 	}
 
+    public DefaultTableModel arrayToTable(Integer id) {
+        PlanillaPago planilla = this.administrador.getPlanillaPago();
+        ArrayList<Empleado> array = planilla.getTablaEmpleados().getTabla();
+
+        String[] columnas = { "ID", "Nombre", "Apellido", "Cargo", "Privilegios", "Contraseña" };
+        DefaultTableModel dtm = new DefaultTableModel(columnas, 0) {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        for (Empleado registro : array) {
+            if (id != null && !registro.getId().equals(id)) continue;
+            String privilegios = "Empleado";
+            if (registro.getPrivilegios() == 1)
+                privilegios = "Administrador";
+            Object[] datos = {
+                registro.getId(),
+                registro.getNombre(),
+                registro.getApellido(),
+                registro.getCargo(),
+                privilegios,
+                registro.getContraseña(),
+            };
+            dtm.addRow(datos);
+        }
+        return dtm;
+    }
+    
 	/**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,58 +87,13 @@ public class Trabajadores extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
+        setResizable(true);
         setTitle("Empleados");
         setVisible(true);
 
         tbEmpleados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
         tbEmpleados.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        tbEmpleados.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "ID", "Nombre", "Apellido", "Cargo"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        tbEmpleados.setModel(this.arrayToTable(null));
         tbEmpleadoTScroll.setViewportView(tbEmpleados);
 
         busqId.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -114,6 +104,11 @@ public class Trabajadores extends javax.swing.JInternalFrame {
         buscar.setBackground(new java.awt.Color(255, 102, 0));
         buscar.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         buscar.setText("Buscar");
+        buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarActionPerformed(evt);
+            }
+        });
 
         crearEmpleado.setBackground(new java.awt.Color(255, 102, 0));
         crearEmpleado.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
@@ -152,7 +147,7 @@ public class Trabajadores extends javax.swing.JInternalFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1))
                         .addComponent(tbEmpleadoTScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,15 +163,14 @@ public class Trabajadores extends javax.swing.JInternalFrame {
                     .addComponent(jButton1))
                 .addGap(18, 18, 18)
                 .addComponent(tbEmpleadoTScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void crearEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearEmpleadoActionPerformed
-        crearEmpleado ce = new crearEmpleado();
-        ce.setAdministrador(this.administrador);
+        crearEmpleado ce = new crearEmpleado(this.administrador, this);
         AdministradorC.centralA.add(ce);
         Dimension desktopSize = centralA.getSize();
         Dimension FrameSize = ce.getSize();
@@ -186,8 +180,7 @@ public class Trabajadores extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_crearEmpleadoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        editarEmpleado ee = new editarEmpleado();
-        ee.setAdministrador(this.administrador);
+        editarEmpleado ee = new editarEmpleado(this.administrador, this);
         AdministradorC.centralA.add(ee);
         Dimension desktopSize = centralA.getSize();
         Dimension FrameSize = ee.getSize();
@@ -195,6 +188,22 @@ public class Trabajadores extends javax.swing.JInternalFrame {
         ee.show();
         ee.toFront();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+        String id_str = this.busqIdTF.getText();
+        if (id_str.isBlank()) return;
+        Integer id;
+        if (id_str.isBlank())
+            id = null;
+        else
+            try {
+                id = Integer.parseInt(id_str);
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Ingresa un número", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        this.getTbEmpleados().setModel(this.arrayToTable(id));
+    }//GEN-LAST:event_buscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -206,4 +215,11 @@ public class Trabajadores extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane tbEmpleadoTScroll;
     private javax.swing.JTable tbEmpleados;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the tbEmpleados
+     */
+    public javax.swing.JTable getTbEmpleados() {
+        return tbEmpleados;
+    }
 }

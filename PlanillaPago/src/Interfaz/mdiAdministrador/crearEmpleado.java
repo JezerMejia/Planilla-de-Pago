@@ -14,15 +14,17 @@ import Usuarios.Administrador;
 public class crearEmpleado extends javax.swing.JInternalFrame {
 
     private Administrador administrador;
+    private Trabajadores trabajadores;
 
     /**
      * Creates new form crearEmpleado
      */
-    public crearEmpleado() {
+    public crearEmpleado(Administrador administrador, Trabajadores trabajadores) {
+        this.trabajadores = trabajadores;
+        this.administrador = administrador;
         initComponents();
         crearEmp.setEnabled(false);
         crearEmp.setBackground(new Color(204,204,204));
-        
     }
 
     public Administrador getAdministrador() {
@@ -161,7 +163,7 @@ public class crearEmpleado extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(crearEmp)
-                .addGap(114, 114, 114))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,9 +190,9 @@ public class crearEmpleado extends javax.swing.JInternalFrame {
                     .addComponent(contraTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(crearEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -218,6 +220,7 @@ public class crearEmpleado extends javax.swing.JInternalFrame {
 
     private void crearEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearEmpActionPerformed
         this.administrador.crearEmpleado(Integer.parseInt(idTF.getText()), nombreTF.getText(), apellidoTF.getText(), cargoTF.getText(), contraTF.getText());
+        this.trabajadores.getTbEmpleados().setModel(this.trabajadores.arrayToTable(null));
     }//GEN-LAST:event_crearEmpActionPerformed
 
 

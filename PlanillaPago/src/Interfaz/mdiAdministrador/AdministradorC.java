@@ -24,9 +24,11 @@ public class AdministradorC extends javax.swing.JFrame {
    //public InputStream foto1 = this.getClass().getResourceAsStream("/Iconos/fondoCentral.png");
     private Administrador administrador;
     private Login login;
+    private Planilla.PlanillaPago planillaPago;
     
     public AdministradorC(Login login) {
         this.login = login;
+        this.planillaPago = login.getPlanillaPago();
         initComponents();
         this.setLocationRelativeTo(null);
         //cargarImagen(centralA,foto1);
@@ -196,8 +198,7 @@ public class AdministradorC extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rePagoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rePagoMouseClicked
-        RealizarPago rp = new RealizarPago();
-        rp.setAdministrador(this.administrador);
+        RealizarPago rp = new RealizarPago(this.administrador);
         
         centralA.add(rp);
         Dimension desktopSize = centralA.getSize();
@@ -208,8 +209,7 @@ public class AdministradorC extends javax.swing.JFrame {
     }//GEN-LAST:event_rePagoMouseClicked
 
     private void solAdelantoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_solAdelantoMouseClicked
-        Solicitudes sol = new Solicitudes();
-        sol.setAdministrador(this.administrador);
+        Solicitudes sol = new Solicitudes(this.administrador);
         
         centralA.add(sol);
         Dimension desktopSize = centralA.getSize();
@@ -220,8 +220,7 @@ public class AdministradorC extends javax.swing.JFrame {
     }//GEN-LAST:event_solAdelantoMouseClicked
 
     private void EmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmpleadosMouseClicked
-        Trabajadores trab = new Trabajadores();
-        trab.setAdministrador(this.administrador);
+        Trabajadores trab = new Trabajadores(this.administrador);
         centralA.add(trab);
         Dimension desktopSize = centralA.getSize();
         Dimension FrameSize = trab.getSize();
@@ -231,8 +230,7 @@ public class AdministradorC extends javax.swing.JFrame {
     }//GEN-LAST:event_EmpleadosMouseClicked
 
     private void sobreMiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sobreMiMouseClicked
-       sobreMi sm = new sobreMi();
-       sm.setAdministrador(this.administrador);
+       sobreMi sm = new sobreMi(this.administrador);
        
        centralA.add(sm);
        Dimension desktopSize = centralA.getSize();

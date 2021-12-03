@@ -4,7 +4,12 @@
  */
 package Interfaz.mdiAdministrador;
 
+import Planilla.PlanillaPago;
+import Registros.RegistroPago;
+import javax.swing.table.DefaultTableModel;
+
 import Usuarios.Administrador;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,7 +22,8 @@ public class RealizarPago extends javax.swing.JInternalFrame {
     /**
      * Creates new form RealizarPago
      */
-    public RealizarPago() {
+    public RealizarPago(Administrador administrador) {
+        this.administrador = administrador;
         initComponents();
     }
 
@@ -27,6 +33,27 @@ public class RealizarPago extends javax.swing.JInternalFrame {
 
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
+    }
+
+    public DefaultTableModel arrayToTable() {
+        PlanillaPago planilla = this.administrador.getPlanillaPago();
+        ArrayList<RegistroPago> array = planilla.getTablaPagos().getTabla();
+
+        String[] columnas = { "Num", "Monto", "Fecha" };
+        DefaultTableModel dtm = new DefaultTableModel(columnas, 0) {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        for (RegistroPago registro : array) {
+            Object[] datos = {
+                registro.getNum(),
+                registro.getMonto(),
+                registro.getFecha(),
+            };
+            dtm.addRow(datos);
+        }
+        return dtm;
     }
 
     /**
@@ -45,59 +72,14 @@ public class RealizarPago extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
+        setResizable(true);
         setTitle("Realizar Pago");
         setMaximumSize(new java.awt.Dimension(76, 2147483647));
         setVisible(true);
 
         tbPago.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
         tbPago.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        tbPago.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "ID", "Nombre", "Apellido", "Cargo"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        tbPago.setModel(this.arrayToTable());
         tbPagoScroll.setViewportView(tbPago);
 
         realizarPago.setBackground(new java.awt.Color(255, 102, 0));
@@ -114,23 +96,22 @@ public class RealizarPago extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(tbPagoScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(197, 197, 197)
-                        .addComponent(realizarPago)))
+                .addGap(40, 40, 40)
+                .addComponent(tbPagoScroll)
                 .addContainerGap(41, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(realizarPago)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(41, 41, 41)
                 .addComponent(realizarPago)
-                .addGap(29, 29, 29)
-                .addComponent(tbPagoScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(tbPagoScroll)
+                .addGap(44, 44, 44))
         );
 
         pack();

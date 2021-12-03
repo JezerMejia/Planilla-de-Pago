@@ -4,7 +4,14 @@
  */
 package Interfaz.mdiAdministrador;
 
+import static Interfaz.mdiAdministrador.AdministradorC.centralA;
+import Planilla.PlanillaPago;
+import Registros.RegistroAdelanto;
+import Registros.RegistroPago;
 import Usuarios.Administrador;
+import java.awt.Dimension;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,7 +24,8 @@ public class Solicitudes extends javax.swing.JInternalFrame {
     /**
      * Creates new form Solicitud
      */
-    public Solicitudes() {
+    public Solicitudes(Administrador administrador) {
+        this.administrador = administrador;
         initComponents();
     }
 
@@ -27,6 +35,34 @@ public class Solicitudes extends javax.swing.JInternalFrame {
 
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
+    }
+    
+    public DefaultTableModel arrayToTable() {
+        PlanillaPago planilla = this.administrador.getPlanillaPago();
+        ArrayList<RegistroAdelanto> array = planilla.getTablaAdelantos().getTabla();
+
+        String[] columnas = { "Num", "Monto", "Estado", "Justificación" ,"Fecha" };
+        DefaultTableModel dtm = new DefaultTableModel(columnas, 0) {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        for (RegistroAdelanto registro : array) {
+            String estado = "En progreso...";
+            if (registro.getAceptado() == 1)
+                estado = "Aceptado";
+            if (registro.getAceptado() == 2)
+                estado = "Rechazado";
+            Object[] datos = {
+                registro.getNum(),
+                registro.getAdelanto(),
+                estado,
+                registro.getJustificacion(),
+                registro.getFecha(),
+            };
+            dtm.addRow(datos);
+        }
+        return dtm;
     }
 
     /**
@@ -45,86 +81,59 @@ public class Solicitudes extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
+        setResizable(true);
         setTitle("Solicitudes");
         setVisible(true);
 
         tbSolicitud.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
         tbSolicitud.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        tbSolicitud.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "ID", "Nombre", "Apellido", "Cargo"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        tbSolicitud.setModel(this.arrayToTable());
         tbSolicitudScroll.setViewportView(tbSolicitud);
 
         admSolicitudes.setBackground(new java.awt.Color(255, 102, 0));
         admSolicitudes.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         admSolicitudes.setText("Administrar Solicitudes");
+        admSolicitudes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                admSolicitudesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(tbSolicitudScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addComponent(admSolicitudes)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(tbSolicitudScroll)
+                .addGap(33, 33, 33))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(admSolicitudes)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
-                .addComponent(admSolicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(tbSolicitudScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(admSolicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(tbSolicitudScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
                 .addGap(24, 24, 24))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void admSolicitudesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_admSolicitudesActionPerformed
+        AdministrarAdelantos adm = new AdministrarAdelantos(this.administrador, this);
+        AdministradorC.centralA.add(adm);
+        Dimension desktopSize = centralA.getSize();
+        Dimension FrameSize = adm.getSize();
+        adm.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
+        adm.show();
+        adm.toFront();
+    }//GEN-LAST:event_admSolicitudesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -132,4 +141,11 @@ public class Solicitudes extends javax.swing.JInternalFrame {
     private javax.swing.JTable tbSolicitud;
     private javax.swing.JScrollPane tbSolicitudScroll;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the tbSolicitud
+     */
+    public javax.swing.JTable getTbSolicitud() {
+        return tbSolicitud;
+    }
 }
