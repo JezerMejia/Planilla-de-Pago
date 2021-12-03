@@ -246,11 +246,16 @@ public class Login extends javax.swing.JFrame {
             cen.setEmpleado(empleado);
             cen.setVisible(true);
             this.dispose();
+            
+            JOptionPane.showMessageDialog(null,"Bienvenido empleado: "+empleado.getNombre());
+            
         } else {
             AdministradorC adm = new AdministradorC();
             adm.setAdministrador((Administrador) empleado);
             adm.setVisible(true);
+            JOptionPane.showMessageDialog(null,"Bienvenido Administrador: "+ empleado.getNombre());
             this.dispose();
+           // JOptionPane.showMessageDialog(null,"Bienvenido empleado: "+adm.getName());
         }
     }//GEN-LAST:event_entrarBActionPerformed
 

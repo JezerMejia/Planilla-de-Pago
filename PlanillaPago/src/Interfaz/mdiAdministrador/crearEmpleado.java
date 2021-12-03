@@ -5,6 +5,7 @@
 package Interfaz.mdiAdministrador;
 
 import java.awt.Color;
+import Usuarios.Administrador;
 
 /**
  *
@@ -99,6 +100,11 @@ public class crearEmpleado extends javax.swing.JInternalFrame {
         crearEmp.setBackground(new java.awt.Color(247, 104, 8));
         crearEmp.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         crearEmp.setText("Crear Empleado");
+        crearEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearEmpActionPerformed(evt);
+            }
+        });
 
         jSeparator1.setForeground(new java.awt.Color(255, 102, 0));
 
@@ -198,6 +204,11 @@ public class crearEmpleado extends javax.swing.JInternalFrame {
     private void contraTFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contraTFKeyReleased
        iniciarBoton(); 
     }//GEN-LAST:event_contraTFKeyReleased
+
+    private void crearEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearEmpActionPerformed
+       
+    
+    }//GEN-LAST:event_crearEmpActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
