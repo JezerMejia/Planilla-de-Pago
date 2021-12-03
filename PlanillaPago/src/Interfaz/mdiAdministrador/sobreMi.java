@@ -40,9 +40,9 @@ public class sobreMi extends javax.swing.JInternalFrame {
         nombreS = new javax.swing.JLabel();
         idS = new javax.swing.JLabel();
         cargo = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        nombreAdmin = new javax.swing.JLabel();
+        apellidoAdmin = new javax.swing.JLabel();
+        cargoAdmin = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
@@ -59,14 +59,14 @@ public class sobreMi extends javax.swing.JInternalFrame {
         cargo.setFont(new java.awt.Font("Roboto", 1, 13)); // NOI18N
         cargo.setText("Cargo");
 
-        jLabel1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jLabel1.setText("<User Code>");
+        nombreAdmin.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        nombreAdmin.setText("<User Code>");
 
-        jLabel2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jLabel2.setText("<User Code>");
+        apellidoAdmin.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        apellidoAdmin.setText("<User Code>");
 
-        jLabel3.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jLabel3.setText("<User Code>");
+        cargoAdmin.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        cargoAdmin.setText("<User Code>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,15 +78,15 @@ public class sobreMi extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cargo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3))
+                        .addComponent(cargoAdmin))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(idS)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2))
+                        .addComponent(apellidoAdmin))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(nombreS)
                         .addGap(31, 31, 31)
-                        .addComponent(jLabel1)))
+                        .addComponent(nombreAdmin)))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -95,15 +95,15 @@ public class sobreMi extends javax.swing.JInternalFrame {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombreS)
-                    .addComponent(jLabel1))
+                    .addComponent(nombreAdmin))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idS)
-                    .addComponent(jLabel2))
+                    .addComponent(apellidoAdmin))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cargo)
-                    .addComponent(jLabel3))
+                    .addComponent(cargoAdmin))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
@@ -112,11 +112,11 @@ public class sobreMi extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel apellidoAdmin;
     private javax.swing.JLabel cargo;
+    private javax.swing.JLabel cargoAdmin;
     private javax.swing.JLabel idS;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel nombreAdmin;
     private javax.swing.JLabel nombreS;
     // End of variables declaration//GEN-END:variables
 }
