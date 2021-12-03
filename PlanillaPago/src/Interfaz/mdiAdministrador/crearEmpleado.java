@@ -13,6 +13,8 @@ import Usuarios.Administrador;
  */
 public class crearEmpleado extends javax.swing.JInternalFrame {
 
+    private Administrador administrador;
+
     /**
      * Creates new form crearEmpleado
      */
@@ -21,6 +23,14 @@ public class crearEmpleado extends javax.swing.JInternalFrame {
         crearEmp.setEnabled(false);
         crearEmp.setBackground(new Color(204,204,204));
         
+    }
+
+    public Administrador getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(Administrador administrador) {
+        this.administrador = administrador;
     }
 
     public void iniciarBoton(){
@@ -207,10 +217,7 @@ public class crearEmpleado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_contraTFKeyReleased
 
     private void crearEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearEmpActionPerformed
-        Administrador adm = new Administrador();
-        
-        adm.crearEmpleado(Integer.parseInt(idTF.getText()), nombreTF.getText(), apellidoTF.getText(), cargoTF.getText(), contra.getText());
-        
+        this.administrador.crearEmpleado(Integer.parseInt(idTF.getText()), nombreTF.getText(), apellidoTF.getText(), cargoTF.getText(), contraTF.getText());
     }//GEN-LAST:event_crearEmpActionPerformed
 
 

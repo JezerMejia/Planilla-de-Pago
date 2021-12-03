@@ -6,11 +6,15 @@ package Interfaz.mdiAdministrador;
 
 import java.awt.Color;
 
+import Usuarios.Administrador;
+
 /**
  *
  * @author Gimena Navarrete
  */
 public class editarEmpleado extends javax.swing.JInternalFrame {
+
+    private Administrador administrador;
 
     /**
      * Creates new form editarEmpleado
@@ -19,6 +23,14 @@ public class editarEmpleado extends javax.swing.JInternalFrame {
         initComponents();
         buscar.setEnabled(false);
         buscar.setBackground(new Color(204,204,204));
+    }
+
+    public Administrador getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(Administrador administrador) {
+        this.administrador = administrador;
     }
 
     public void iniciarBoton(){

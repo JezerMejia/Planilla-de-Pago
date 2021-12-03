@@ -242,18 +242,16 @@ public class Login extends javax.swing.JFrame {
         empleado.setPlanillaPago(this.planillaPago);
 
         if (empleado.getPrivilegios() == 0) {
+            JOptionPane.showMessageDialog(null,"Bienvenido empleado: "+empleado.getNombre());
             EmpleadoC cen = new EmpleadoC();
             cen.setEmpleado(empleado);
             cen.setVisible(true);
             this.dispose();
-            
-            JOptionPane.showMessageDialog(null,"Bienvenido empleado: "+empleado.getNombre());
-            
         } else {
-            AdministradorC adm = new AdministradorC();
+            JOptionPane.showMessageDialog(null,"Bienvenido Administrador: "+ empleado.getNombre());
+            AdministradorC adm = new AdministradorC(this);
             adm.setAdministrador((Administrador) empleado);
             adm.setVisible(true);
-            JOptionPane.showMessageDialog(null,"Bienvenido Administrador: "+ empleado.getNombre());
             this.dispose();
            // JOptionPane.showMessageDialog(null,"Bienvenido empleado: "+adm.getName());
         }

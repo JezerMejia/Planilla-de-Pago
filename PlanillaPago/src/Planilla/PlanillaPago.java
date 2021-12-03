@@ -21,7 +21,7 @@ import Usuarios.Empleado;
  */
 public class PlanillaPago {
 
-    private Float pagoHora = 35f;
+    private Float pagoHora = 33.3f;
     private TablaEmpleados tablaEmpleados;
     private TablaPagos tablaPagos;
     private TablaAdelantos tablaAdelantos;

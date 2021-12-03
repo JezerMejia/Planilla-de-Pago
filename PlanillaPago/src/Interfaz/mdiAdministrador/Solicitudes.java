@@ -4,17 +4,29 @@
  */
 package Interfaz.mdiAdministrador;
 
+import Usuarios.Administrador;
+
 /**
  *
  * @author Gimena Navarrete
  */
 public class Solicitudes extends javax.swing.JInternalFrame {
 
+    private Administrador administrador;
+
     /**
      * Creates new form Solicitud
      */
     public Solicitudes() {
         initComponents();
+    }
+
+    public Administrador getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(Administrador administrador) {
+        this.administrador = administrador;
     }
 
     /**

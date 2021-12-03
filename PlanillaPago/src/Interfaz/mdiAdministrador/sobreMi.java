@@ -4,17 +4,28 @@
  */
 package Interfaz.mdiAdministrador;
 
+import Usuarios.Administrador;
+
 /**
  *
  * @author Gimena Navarrete
  */
 public class sobreMi extends javax.swing.JInternalFrame {
+    private Administrador administrador;
 
     /**
      * Creates new form sobreMi
      */
     public sobreMi() {
         initComponents();
+    }
+
+    public Administrador getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(Administrador administrador) {
+        this.administrador = administrador;
     }
 
     /**
