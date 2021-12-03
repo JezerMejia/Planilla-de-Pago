@@ -61,13 +61,13 @@ public class sobreMi extends javax.swing.JInternalFrame {
         cargo.setText("Cargo");
 
         nombreAdmin.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        nombreAdmin.setText("<User Code>");
+        nombreAdmin.setText(this.administrador.getNombre());
 
         apellidoAdmin.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        apellidoAdmin.setText("<User Code>");
+        apellidoAdmin.setText(this.administrador.getApellido());
 
         cargoAdmin.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        cargoAdmin.setText("<User Code>");
+        cargoAdmin.setText(this.administrador.getCargo());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
