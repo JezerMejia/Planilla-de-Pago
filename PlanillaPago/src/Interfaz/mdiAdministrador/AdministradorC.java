@@ -12,6 +12,7 @@ import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 /**
@@ -242,12 +243,32 @@ public class AdministradorC extends javax.swing.JFrame {
     }//GEN-LAST:event_sobreMiMouseClicked
 
     private void cerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionActionPerformed
-        this.dispose();
-        this.login.setVisible(true);
+        
+        int decision = JOptionPane.showConfirmDialog(null, "¿Desea salir?");
+        
+        if(decision == JOptionPane.YES_OPTION){
+            JOptionPane.showMessageDialog(null, "Vuelva pronto");
+            this.dispose();
+            this.login.setVisible(true);
+        }
+        
+        if(decision == JOptionPane.NO_OPTION){
+            JOptionPane.showMessageDialog(null,"Gracias por quedarse");
+        }
+        
     }//GEN-LAST:event_cerrarSesionActionPerformed
 
     private void cerrarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarProActionPerformed
-       System.exit(0);
+        int decisionS = JOptionPane.showConfirmDialog(null, "¿Desea salir?");
+        
+        if(decisionS == JOptionPane.YES_OPTION){
+            JOptionPane.showMessageDialog(null, "Vuelva pronto");
+            System.exit(0);
+        }
+        
+        if(decisionS == JOptionPane.NO_OPTION){
+            JOptionPane.showMessageDialog(null,"Gracias por quedarse");
+        }
     }//GEN-LAST:event_cerrarProActionPerformed
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked

@@ -11,6 +11,7 @@ import Usuarios.Empleado;
 import static Interfaz.mdiAdministrador.AdministradorC.centralA;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 
 
@@ -69,8 +70,8 @@ public class EmpleadoC extends javax.swing.JFrame {
         pagosEmp = new javax.swing.JMenu();
         sobreMiEmp = new javax.swing.JMenu();
         salirEmp = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        cerrarSesion = new javax.swing.JMenuItem();
+        salir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Administrador");
@@ -157,26 +158,21 @@ public class EmpleadoC extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem1.setText("Cerrar Sesion");
-        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuItem1MouseClicked(evt);
-            }
-        });
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        cerrarSesion.setText("Cerrar Sesion");
+        cerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                cerrarSesionActionPerformed(evt);
             }
         });
-        salirEmp.add(jMenuItem1);
+        salirEmp.add(cerrarSesion);
 
-        jMenuItem2.setText("Salir del programa");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        salir.setText("Salir del programa");
+        salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                salirActionPerformed(evt);
             }
         });
-        salirEmp.add(jMenuItem2);
+        salirEmp.add(salir);
 
         barraMEmpleado.add(salirEmp);
 
@@ -246,22 +242,38 @@ public class EmpleadoC extends javax.swing.JFrame {
         sm.toFront();
     }//GEN-LAST:event_sobreMiEmpMouseClicked
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
     private void salirEmpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirEmpMouseClicked
        //invalido
     }//GEN-LAST:event_salirEmpMouseClicked
 
-    private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
+    private void cerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionActionPerformed
+        int decision = JOptionPane.showConfirmDialog(null, "¿Desea salir?");
         
-    }//GEN-LAST:event_jMenuItem1MouseClicked
+        if(decision == JOptionPane.YES_OPTION){
+            JOptionPane.showMessageDialog(null, "Vuelva pronto");
+            this.dispose();
+            this.login.setVisible(true);
+        }
+        
+        if(decision == JOptionPane.NO_OPTION){
+            JOptionPane.showMessageDialog(null,"Gracias por quedarse");
+        }
+    }//GEN-LAST:event_cerrarSesionActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        this.dispose();
-        this.login.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+       int decisionS = JOptionPane.showConfirmDialog(null, "¿Desea salir?");
+        
+        if(decisionS == JOptionPane.YES_OPTION){
+            JOptionPane.showMessageDialog(null, "Vuelva pronto");
+            System.exit(0);
+        }
+        
+        if(decisionS == JOptionPane.NO_OPTION){
+            JOptionPane.showMessageDialog(null,"Gracias por quedarse");
+        } 
+        
+             
+    }//GEN-LAST:event_salirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,10 +319,10 @@ public class EmpleadoC extends javax.swing.JFrame {
     private javax.swing.JMenu asistenciaEmp;
     private javax.swing.JMenuBar barraMEmpleado;
     public static javax.swing.JDesktopPane centralE;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem cerrarSesion;
     private javax.swing.JLabel logoEmp;
     private javax.swing.JMenu pagosEmp;
+    private javax.swing.JMenuItem salir;
     private javax.swing.JMenu salirEmp;
     private javax.swing.JMenu sobreMiEmp;
     // End of variables declaration//GEN-END:variables
