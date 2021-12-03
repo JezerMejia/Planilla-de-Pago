@@ -20,12 +20,13 @@ public class crearEmpleado extends javax.swing.JInternalFrame {
         initComponents();
         crearEmp.setEnabled(false);
         crearEmp.setBackground(new Color(204,204,204));
+        
     }
 
     public void iniciarBoton(){
         
         if(!nombreTF.getText().isEmpty() && !apellidoTF.getText().isEmpty() && !cargoTF.getText().isEmpty() &&
-           !IdTF.getText().isEmpty() && !contraTF.getText().isEmpty()){
+           !idTF.getText().isEmpty() && !contraTF.getText().isEmpty()){
             crearEmp.setEnabled(true);
             crearEmp.setBackground(new Color(247,104,8));
         
@@ -45,7 +46,7 @@ public class crearEmpleado extends javax.swing.JInternalFrame {
         nombreTF = new javax.swing.JTextField();
         apellidoTF = new javax.swing.JTextField();
         cargoTF = new javax.swing.JTextField();
-        IdTF = new javax.swing.JTextField();
+        idTF = new javax.swing.JTextField();
         crearEmp = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         contra = new javax.swing.JLabel();
@@ -90,10 +91,10 @@ public class crearEmpleado extends javax.swing.JInternalFrame {
             }
         });
 
-        IdTF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
-        IdTF.addKeyListener(new java.awt.event.KeyAdapter() {
+        idTF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
+        idTF.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                IdTFKeyReleased(evt);
+                idTFKeyReleased(evt);
             }
         });
 
@@ -145,7 +146,7 @@ public class crearEmpleado extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(idEmp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(IdTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(idTF, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(124, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -169,7 +170,7 @@ public class crearEmpleado extends javax.swing.JInternalFrame {
                     .addComponent(cargoEmp))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IdTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idEmp))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -197,22 +198,23 @@ public class crearEmpleado extends javax.swing.JInternalFrame {
         iniciarBoton();
     }//GEN-LAST:event_cargoTFKeyReleased
 
-    private void IdTFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IdTFKeyReleased
+    private void idTFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idTFKeyReleased
         iniciarBoton(); 
-    }//GEN-LAST:event_IdTFKeyReleased
+    }//GEN-LAST:event_idTFKeyReleased
 
     private void contraTFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contraTFKeyReleased
        iniciarBoton(); 
     }//GEN-LAST:event_contraTFKeyReleased
 
     private void crearEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearEmpActionPerformed
-       
-    
+        Administrador adm = new Administrador();
+        
+        adm.crearEmpleado(Integer.parseInt(idTF.getText()), nombreTF.getText(), apellidoTF.getText(), cargoTF.getText(), contra.getText());
+        
     }//GEN-LAST:event_crearEmpActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField IdTF;
     private javax.swing.JLabel apellidoEmp;
     private javax.swing.JTextField apellidoTF;
     private javax.swing.JLabel cargoEmp;
@@ -221,6 +223,7 @@ public class crearEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField contraTF;
     private javax.swing.JButton crearEmp;
     private javax.swing.JLabel idEmp;
+    private javax.swing.JTextField idTF;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel nombreEmp;
     private javax.swing.JTextField nombreTF;
