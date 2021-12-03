@@ -38,16 +38,11 @@ public class sobreMi extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         nombreS = new javax.swing.JLabel();
-        apellidoS = new javax.swing.JLabel();
         idS = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        nombreAdmin = new javax.swing.JTextField();
-        apellidoAdmin = new javax.swing.JTextField();
-        idAdmin = new javax.swing.JTextField();
         cargo = new javax.swing.JLabel();
-        cargoAdmin = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
@@ -55,135 +50,73 @@ public class sobreMi extends javax.swing.JInternalFrame {
         setTitle("Sobre mi");
         setVisible(true);
 
-        nombreS.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        nombreS.setFont(new java.awt.Font("Roboto", 1, 13)); // NOI18N
         nombreS.setText("Nombre: ");
 
-        apellidoS.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        apellidoS.setText("Apellido: ");
-
-        idS.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        idS.setFont(new java.awt.Font("Roboto", 1, 13)); // NOI18N
         idS.setText("ID: ");
 
-        jSeparator1.setForeground(new java.awt.Color(255, 102, 0));
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("esto se puede eliminar");
-        jScrollPane1.setViewportView(jTextArea1);
-
-        nombreAdmin.setEditable(false);
-        nombreAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreAdminActionPerformed(evt);
-            }
-        });
-
-        apellidoAdmin.setEditable(false);
-        apellidoAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                apellidoAdminActionPerformed(evt);
-            }
-        });
-
-        idAdmin.setEditable(false);
-        idAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idAdminActionPerformed(evt);
-            }
-        });
-
-        cargo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        cargo.setFont(new java.awt.Font("Roboto", 1, 13)); // NOI18N
         cargo.setText("Cargo");
 
-        cargoAdmin.setEditable(false);
-        cargoAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cargoAdminActionPerformed(evt);
-            }
-        });
+        jLabel1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel1.setText("<User Code>");
+
+        jLabel2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel2.setText("<User Code>");
+
+        jLabel3.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel3.setText("<User Code>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nombreS)
-                            .addComponent(apellidoS)
-                            .addComponent(idS)
-                            .addComponent(cargo))
-                        .addGap(77, 77, 77)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nombreAdmin)
-                            .addComponent(apellidoAdmin)
-                            .addComponent(idAdmin)
-                            .addComponent(cargoAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)))
+                        .addComponent(cargo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                        .addComponent(idS)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(nombreS)
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel1)))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombreS)
-                    .addComponent(nombreAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(apellidoS)
-                    .addComponent(apellidoAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idS)
-                    .addComponent(idAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cargo)
-                    .addComponent(cargoAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel3))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nombreAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreAdminActionPerformed
-        nombreAdmin.setText(this.administrador.getNombre()); 
-    }//GEN-LAST:event_nombreAdminActionPerformed
-
-    private void apellidoAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidoAdminActionPerformed
-        apellidoAdmin.setText(this.administrador.getApellido());
-    }//GEN-LAST:event_apellidoAdminActionPerformed
-
-    private void idAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idAdminActionPerformed
-        idAdmin.setText(Integer.toString(this.administrador.getId()));
-    }//GEN-LAST:event_idAdminActionPerformed
-
-    private void cargoAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargoAdminActionPerformed
-        cargoAdmin.setText(this.administrador.getCargo());
-    }//GEN-LAST:event_cargoAdminActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField apellidoAdmin;
-    private javax.swing.JLabel apellidoS;
     private javax.swing.JLabel cargo;
-    private javax.swing.JTextField cargoAdmin;
-    private javax.swing.JTextField idAdmin;
     private javax.swing.JLabel idS;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField nombreAdmin;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel nombreS;
     // End of variables declaration//GEN-END:variables
 }
