@@ -5,7 +5,6 @@
 package Interfaz.mdiAdministrador;
 
 import Interfaz.Login;
-import Interfaz.mdiEmpleado.ImagenFondo;
 import Usuarios.Administrador;
 
 import java.awt.Dimension;
