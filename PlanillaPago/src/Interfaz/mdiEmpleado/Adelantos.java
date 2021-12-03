@@ -84,6 +84,7 @@ public class Adelantos extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setResizable(true);
+        setTitle("Adelantos");
         setVisible(true);
 
         tbAdelanto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
@@ -120,7 +121,7 @@ public class Adelantos extends javax.swing.JInternalFrame {
                 .addGap(29, 29, 29)
                 .addComponent(tbAdelantoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(soliAdelanto, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addComponent(soliAdelanto, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

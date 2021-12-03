@@ -49,9 +49,9 @@ public class sobreMi extends javax.swing.JInternalFrame {
         nombreEmp = new javax.swing.JLabel();
         idEmp = new javax.swing.JLabel();
         cargoEmp = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        nombre = new javax.swing.JLabel();
+        id = new javax.swing.JLabel();
+        cargo = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
@@ -68,14 +68,14 @@ public class sobreMi extends javax.swing.JInternalFrame {
         cargoEmp.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         cargoEmp.setText(this.empleado.getCargo());
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        jLabel1.setText("Nombre:");
+        nombre.setFont(new java.awt.Font("Roboto", 1, 13)); // NOI18N
+        nombre.setText("Nombre:");
 
-        jLabel2.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        jLabel2.setText("ID:");
+        id.setFont(new java.awt.Font("Roboto", 1, 13)); // NOI18N
+        id.setText("ID:");
 
-        jLabel3.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
-        jLabel3.setText("Cargo:");
+        cargo.setFont(new java.awt.Font("Roboto", 1, 13)); // NOI18N
+        cargo.setText("Cargo:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,15 +84,15 @@ public class sobreMi extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(nombre)
+                    .addComponent(id)
+                    .addComponent(cargo))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cargoEmp)
                     .addComponent(idEmp)
                     .addComponent(nombreEmp))
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,21 +100,21 @@ public class sobreMi extends javax.swing.JInternalFrame {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombreEmp)
-                    .addComponent(jLabel1))
+                    .addComponent(nombre))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idEmp)
-                    .addComponent(jLabel2))
+                    .addComponent(id))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(cargoEmp)
-                    .addComponent(jLabel3))
-                .addContainerGap(73, Short.MAX_VALUE))
+                    .addComponent(cargo))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /*
     private void nombreTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreTFActionPerformed
         nombreTF.setText(this.empleado.getNombre()); 
     }//GEN-LAST:event_nombreTFActionPerformed
@@ -122,17 +122,14 @@ public class sobreMi extends javax.swing.JInternalFrame {
     private void apellidoTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidoTFActionPerformed
          apellidoTF.setText(this.empleado.getApellido());
     }//GEN-LAST:event_apellidoTFActionPerformed
-
+    */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel apellidoEmp;
-    private javax.swing.JTextField apellidoTF;
+    private javax.swing.JLabel cargo;
     private javax.swing.JLabel cargoEmp;
+    private javax.swing.JLabel id;
     private javax.swing.JLabel idEmp;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel nombre;
     private javax.swing.JLabel nombreEmp;
-    private javax.swing.JTextField nombreTF;
     // End of variables declaration//GEN-END:variables
 }

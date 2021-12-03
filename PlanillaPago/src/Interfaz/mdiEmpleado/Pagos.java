@@ -75,6 +75,7 @@ public class Pagos extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setResizable(true);
+        setTitle("Adelantos");
         setVisible(true);
 
         tbPagosScrollEmp.setMinimumSize(new java.awt.Dimension(75, 64));

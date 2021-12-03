@@ -76,6 +76,7 @@ public class Asistencia extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setResizable(true);
+        setTitle("Asistencia");
         setVisible(true);
 
         tbAsisteciaEmp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));

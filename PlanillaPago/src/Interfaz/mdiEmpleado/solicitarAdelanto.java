@@ -89,7 +89,7 @@ public class solicitarAdelanto extends javax.swing.JInternalFrame {
         jSeparator1.setBackground(new java.awt.Color(255, 102, 0));
 
         enviarB.setBackground(new java.awt.Color(255, 102, 0));
-        enviarB.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        enviarB.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         enviarB.setText("Enviar Solicitud");
         enviarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,7 +116,7 @@ public class solicitarAdelanto extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 238, Short.MAX_VALUE)
+                        .addGap(0, 240, Short.MAX_VALUE)
                         .addComponent(enviarB)))
                 .addGap(30, 30, 30))
         );
