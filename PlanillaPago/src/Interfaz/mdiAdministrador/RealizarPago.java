@@ -38,6 +38,7 @@ public class RealizarPago extends javax.swing.JInternalFrame {
         setVisible(true);
 
         tbPago.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
+        tbPago.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         tbPago.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -46,9 +47,24 @@ public class RealizarPago extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Nombre", "Apellido", "Cargo"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tbPagoScroll.setViewportView(tbPago);
 
         realizarPago.setBackground(new java.awt.Color(255, 102, 0));

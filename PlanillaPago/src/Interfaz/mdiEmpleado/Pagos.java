@@ -37,6 +37,7 @@ public class Pagos extends javax.swing.JInternalFrame {
         tbPagosScrollEmp.setMinimumSize(new java.awt.Dimension(75, 64));
 
         tbPagosEmp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
+        tbPagosEmp.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         tbPagosEmp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -51,9 +52,16 @@ public class Pagos extends javax.swing.JInternalFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         tbPagosEmp.setMaximumSize(new java.awt.Dimension(75, 64));

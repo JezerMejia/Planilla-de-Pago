@@ -36,6 +36,7 @@ public class Asistencia extends javax.swing.JInternalFrame {
         setVisible(true);
 
         tbAsisteciaEmp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0)));
+        tbAsisteciaEmp.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         tbAsisteciaEmp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -50,9 +51,16 @@ public class Asistencia extends javax.swing.JInternalFrame {
             Class[] types = new Class [] {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         tbAsisteciaEmp.setMaximumSize(new java.awt.Dimension(75, 64));
